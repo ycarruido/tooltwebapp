@@ -18,7 +18,7 @@ export async function sendEmail({ lead, subject, body }) {
   try {
     const smtpEmail = new brevo.SendSmtpEmail();
     smtpEmail.subject = subject;
-    smtpEmail.to = [{ name: "DACSYS WEB", email: process.env.EMAIL_HOST_USER }];
+    smtpEmail.to = [{ name: "ToolTesis Web", email: process.env.EMAIL_HOST_USER }];
     smtpEmail.htmlContent = ContactEmailTemplate(body, lead);
     smtpEmail.sender = {
       name: "DACSYS",
@@ -35,7 +35,7 @@ export async function createContact(lead: {
   email: string;
   name: string;
   phone: string;
-  company: string;
+  country: string;
   status?: "CLIENTE" | "INACTIVO" | "LEAD" | "NEGOCIACION";
 }, message: string) {
   try {
@@ -56,7 +56,7 @@ export async function createContact(lead: {
       NOMBRE: lead.name,
       EMAIL: lead.email,
       ESTADO: lead.status || "LEAD",
-      EMPRESA: lead.company,
+      PAIS: lead.country,
       FUENTE: "Portal Web DACS",
       TELEFONO: lead.phone,
       PRIMER_MENSAJE: message,

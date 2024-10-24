@@ -58,3 +58,7 @@
   border-image-slice: 1; /* Asegura que el degradado se aplique al borde completo */
   border-radius: 1.5rem; /* Asegúrate de que el borde redondeado se mantenga */
 }
+
+.text-bigxl {
+  font-size: 6rem; /* Ajusta el tamaño según lo que necesites */
+}

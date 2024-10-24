@@ -11,11 +11,15 @@ export default function ContactPage() {
   const [formSent, setFormSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const servicesItems = [
-    "Desarrollo Apps web",
-    "Desarrollo Apps Móvil",
-    "Diseño de Páginas Web",
-    "Marketing",
-    "Información",
+    "Trabajo Final de Máster",
+    "Trabajo Final de Gradol",
+    "Asesorías",
+    "Guión de estudio",
+    "Presentaciones",
+    "Artículos Científicos",
+    "CopyWriting",
+    "Matemáticas",
+    "Información ",
   ];
 
   const handleSubmit = async (event, executeRecaptcha) => {
@@ -46,27 +50,32 @@ export default function ContactPage() {
     //se envuelve el form para usar reCAPTCHA
     <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_DACS_GCAPTCHA_SITEKEY}>
       <div className="mt-14 pb-12">
-        <div className="custom-screen text-gray-600">
+        <div className="custom-screen text-gray-700">
           <div className="max-w-lg mx-auto gap-12 flex flex-col lg:flex-row lg:max-w-none">
             <div className="max-w-lg sm:text-center lg:text-left">
               <p className="text-black text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl pb-2">
-                Háblenos sobre su proyecto
+                Cuéntanos sobre tu proyecto
               </p>
               <p className="mt-3">
                 Estamos aquí para ayudarte. Coordina una reunión virtual o
                 presencial para discutir tu proyecto.
               </p>
               <p className="mt-3">
-                Puedes enviarnos un mensaje de WhatsApp a
+              Envíanos un mensaje de WhatsApp a
                 <a
                   href="mailto:solicitudes@tesisalacarta.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sky-800 hover:text-sky-600 font-medium duration-150"
+                  className="text-sky-500 hover:text-sky-600 font-medium duration-150"
                 >
-                  +58 0424-1700657
-                </a>
-              </p>
+                  +56 9 6738 7656
+                </a> 
+                </p>
+                <p>y comencemos a trabajar juntos en tu éxito académico.</p>
+                <h1 className="mt-3 text-sky-6  00 font-medium text-xl">
+                  Confidencialidad y Seguridad Garantizada
+                </h1>
+                <p className="mt-3">Entendemos lo importante que es mantener la privacidad en tus proyectos académicos. Por eso, en nuestra asesoría de tesis, garantizamos absoluta confidencialidad.</p>
             </div>
             <div className="flex-1 w-full mt-12 lg:mt-0">
               <ContactForm
@@ -101,7 +110,7 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
           htmlFor="name"
           className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-sky-800 px-3 peer-focus:px-1"
         >
-          Nombre*
+          Nombre o Seudónimo*
         </label>
       </div>
       <div className="relative">
@@ -139,16 +148,16 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
         <div className="relative flex-1">
           <input
             type="text"
-            id="company"
-            name="company"
+            id="country"
+            name="country"
             className="peer h-10 w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-800"
-            placeholder="Empresa"
+            placeholder="Valencia, España"
           />
           <label
-            htmlFor="company"
+            htmlFor="country"
             className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-sky-800 px-3 peer-focus:px-1"
           >
-            Empresa
+            Ciudad | País 
           </label>
         </div>
       </div>

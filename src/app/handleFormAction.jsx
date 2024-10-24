@@ -6,7 +6,7 @@ import axios from "axios";
     const name = formData.get('name');
     const email = formData.get('email');
     const phone = formData.get('phone');
-    const company = formData.get('company')
+    const country = formData.get('country')
     const message = formData.get('message');
     const about = formData.getAll('about');
 
@@ -63,11 +63,11 @@ import axios from "axios";
     
     await sendEmail({
       subject: aboutStr,
-      lead: [{name: name, email: email, phone: phone, company: company}],
+      lead: [{name: name, email: email, phone: phone, country: country}],
       body: message
     })
 
-    const lead = {email: email, name: name, phone: phone, company: company, status: 'LEAD'};
+    const lead = {email: email, name: name, phone: phone, country: country, status: 'LEAD'};
     //const lead = { email: email, name: name };
     await createContact(lead, message);
 

@@ -3,13 +3,12 @@ import Footer from '../components/ui/Footer/Footer';
 import '../styles/globals.css';
 import Navbar from '../components/ui/Navbar/Navbar';
 import BackToTopButton from '../components/ui/BackToTopButton/BackToTopButton';
-import Script from 'next/script';
 
 import {
-  Poppins
+  Montserrat
 } from 'next/font/google'
 
-const poppins = Poppins({
+const montserrat = Montserrat({
   weight:["300","400","500","700"],
   style: ["italic","normal"],
   subsets:["latin"]
@@ -34,10 +33,13 @@ export const metadata = {
   },
 };
 
+
+
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body className={poppins.className} >
+      <body className={montserrat.className} >
 
         {/* Google reCAPTCHA V3*/}
         {/* <Script 
@@ -45,8 +47,8 @@ export default function RootLayout({ children }) {
           src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_DACS_GCAPTCHA_SITEKEY}`}
         /> */}
 
-        <Navbar />
-          <main>
+        <Navbar/>
+          <main style={{ paddingTop: '60px' }}>
             {children}
           </main>
         <Footer />

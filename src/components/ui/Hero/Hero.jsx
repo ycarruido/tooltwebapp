@@ -1,22 +1,32 @@
 import Link from "next/link";
-import SVGAnimation from "../../SVGAnimation";
 
 const Hero = () => (
   <section
     className="sm:mb-2 md:mb-24 lg:mb-24 flex items-center"
-    style={{ height: "calc(100vh - 150px)" }}
+    style={{ height: "calc(100vh - 150px)", backgroundImage: "url('/img/banner03.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
   >
-    <div className="flex w-full px-4 md:px-20 mx-auto h-full">
+    <div className="flex w-full px-4 md:px-20 mx-auto h-full bg-gray-700 bg-opacity-0"> {/* Fondo oscuro para mejor legibilidad */}
       {/* Columna izquierda (60% en pantallas grandes) */}
-      <div className="w-full md:w-1/2 text-left space-y-5 flex flex-col justify-center">
-        <h1 className="text-4xl md:text-6xl text-gray-950 font-medium sm:text-7xl">
-          Soluciones tecnológicas
+      <div className="w-full md:w-1/2 text-left space-y-5 flex flex-col justify-center text-white">
+        {/* <h1 className="text-4xl lg:text-8xl md:text-6xl sm:text-4xl xs:text-xl font-medium shadow-lg">
+          Redacción experta
+        </h1>
+        <p className="max-w-xl shadow-lg">
+        Estamos aquí para ayudarte a alcanzar tus metas universitarias y asegurarte el éxito en tu proyecto de investigación: Asesoría • Redacción • Metodología • Investigación
+        </p> */}
+
+<div className="relative bg-cover bg-center">
+<div className="absolute inset-0 bg-black opacity-50  rounded-3xl"></div> {/* Fondo semitransparente */}
+    <div className="relative z-10 text-white p-4">
+        <h1 className="text-4xl lg:text-8xl md:text-6xl sm:text-4xl xs:text-xl font-medium">
+            Redacción experta
         </h1>
         <p className="max-w-xl">
-          Obtén presencia en línea de primera clase y automatiza tus procesos
-          internos con nuestras soluciones: Desarrollo Web • Desarrollo de Apps
-          • Infraestructura • Soporte
+            Estamos aquí para ayudarte a alcanzar tus metas universitarias y asegurarte el éxito en tu proyecto de investigación: Asesoría • Redacción • Metodología • Investigación
         </p>
+    </div>
+</div>
+
         <div className="flex flex-col md:flex-row items-center justify-start gap-x-3 font-medium text-sm">
           <Link
             href="/contact"
@@ -33,11 +43,8 @@ const Hero = () => (
           </Link>
         </div>
       </div>
-      
-      <div className="hidden md:block md:w-1/2 h-full items-center justify-center"> 
-      {/* <div className="hidden md:flex md:w-1/2 h-full items-center justify-center"> */}
-        <SVGAnimation />
-      </div>
+      {/* Imagen a la derecha en pantallas grandes */}
+      <div className="hidden md:block md:w-1/2 h-full"></div>
     </div>
   </section>
 );

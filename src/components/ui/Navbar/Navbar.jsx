@@ -6,21 +6,19 @@ import Brand from '../Brand/Brand';
 
 const Navbar = () => {
     const [state, setState] = useState(false);
+    const [showServicesMenu, setShowServicesMenu] = useState(false);
+    const [showCompanyMenu, setShowCompanyMenu] = useState(false);
     const pathname = usePathname(); // Usamos usePathname para observar cambios de ruta
     const navigation = [
         { title: "Servicios", path: "#services900" },
         { title: "Empresa", path: "#about901" },
-        { title: "Portafolio", path: "/portfolio" }, // Cambiamos a la ruta absoluta
-        // { title: "Blog", path: "#testimonials" },
-        { title: "FAQ", path: "/faq" } // Cambiamos a la ruta absoluta
+        { title: "Blog", path: "/portfolio" },
+        { title: "FAQ", path: "/faq" }
     ];
 
     const smoothScroll = (e, path) => {
         e.preventDefault();
-        
-        // Si es un enlace de ancla
         if (path.startsWith('#')) {
-            // Verificamos si estamos en la página principal
             if (pathname === '/') {
                 const element = document.querySelector(path);
                 if (element) {
@@ -29,22 +27,19 @@ const Navbar = () => {
                     console.warn(`No se encontró el elemento con el selector: ${path}`);
                 }
             } else {
-                // Redirigir a la página principal y luego hacer scroll
-                window.location.href = `/${path}`; // Redirigir a la página principal
+                window.location.href = `/${path}`;
             }
         } else {
-            // Si es un enlace a otro componente
-            window.location.href = path; // Navegar directamente a la ruta
+            window.location.href = path;
         }
     };
 
     useEffect(() => {
-        // Resetear el estado cuando la ruta cambia
         const handleState = () => {
             document.body.classList.remove("overflow-hidden");
             setState(false);
         };
-        handleState(); // Llamar la primera vez al renderizar el componente
+        handleState();
         return () => {
             handleState();
         };
@@ -57,7 +52,7 @@ const Navbar = () => {
 
     return (
         <header>
-            <nav className={`bg-slate-50 w-full md:static md:text-sm ${state ? "fixed z-10 h-full" : ""}`}>
+            <nav className={`bg-white border-b border-sky-300 w-full fixed top-0 left-0 z-10 md:text-sm shadow-md`}>
                 <div className="custom-screen items-center mx-auto md:flex">
                     <div className="flex items-center justify-between py-2">
                         <Brand />
@@ -81,15 +76,55 @@ const Navbar = () => {
                         <ul className="menu text-gray-900 text-lg justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-900">
                             {
                                 navigation.map((item, idx) => (
-                                    <li key={idx} className="duration-150 hover:text-gray-500">
+                                    <li key={idx} className="relative duration-150 hover:text-gray-500"
+                                        onMouseEnter={() => {
+                                            if (item.title === "Servicios") setShowServicesMenu(true);
+                                            if (item.title === "Empresa") setShowCompanyMenu(true);
+                                        }}
+                                        onMouseLeave={() => {
+                                            if (item.title === "Servicios") setShowServicesMenu(false);
+                                            if (item.title === "Empresa") setShowCompanyMenu(false);
+                                        }}
+                                    >
                                         <Link
                                             href={item.path}
                                             className="block"
-                                            scroll={false} // Desactivamos el scroll suave de Next.js
-                                            onClick={(e) => smoothScroll(e, item.path)} // Lógica de navegación personalizada
+                                            scroll={false}
+                                            onClick={(e) => smoothScroll(e, item.path)}
                                         >
                                             {item.title}
                                         </Link>
+                                        {/* Submenú para Servicios */}
+                                        {item.title === "Servicios" && showServicesMenu && (
+                                            <div className="absolute left-0 mt-2 bg-white border border-gray-300 shadow-lg rounded-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 w-80"
+                                                onMouseEnter={() => setShowServicesMenu(true)} // Mantener el submenú visible
+                                                onMouseLeave={() => setShowServicesMenu(false)} // Ocultar el submenú al salir
+                                            >
+                                                <ul className="text-sky-600 p-2 font-light">
+                                                    <li><Link href="/servicio1" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Máster</Link></li>
+                                                    <li><Link href="/servicio2" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Grado</Link></li>
+                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Asesorías </Link></li>
+                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Guión de estudio </Link></li>
+                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Presentaciones </Link></li>
+                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Artículos Científicos </Link></li>
+                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">CopyWriting </Link></li>
+                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Matemáticas </Link></li>
+                                                </ul>
+                                            </div>
+                                        )}
+                                        {/* Submenú para Empresa */}
+                                        {item.title === "Empresa" && showCompanyMenu && (
+                                            <div className="absolute left-0 mt-2 bg-white border border-gray-300 shadow-lg rounded-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 w-80"
+                                                onMouseEnter={() => setShowCompanyMenu(true)} // Mantener el submenú visible
+                                                onMouseLeave={() => setShowCompanyMenu(false)} // Ocultar el submenú al salir
+                                            >
+                                                <ul className="text-sky-600 p-2 font-light">
+                                                    <li><Link href="/empresa1" className="block px-4 py-2 hover:bg-gray-100">Empresa 1</Link></li>
+                                                    <li><Link href="/empresa2" className="block px-4 py-2 hover:bg-gray-100">Empresa 2</Link></li>
+                                                    <li><Link href="/empresa3" className="block px-4 py-2 hover:bg-gray-100">Empresa 3</Link></li>
+                                                </ul>
+                                            </div>
+                                        )}
                                     </li>
                                 ))
                             }

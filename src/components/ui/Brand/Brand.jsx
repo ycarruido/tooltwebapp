@@ -5,7 +5,7 @@ function Brand() {
     <Link href="/">
       <img
             src="/img/tooltesi_logo.svg"
-            width={120}
+            width={160}
             alt="logo"
         />
       {/* <h1 className="text-sky-900 text-3xl font-bold">
