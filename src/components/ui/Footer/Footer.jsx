@@ -9,7 +9,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
     ];
 
 const Footer = () => (
-  <footer className="w-full bg-gray-950 text-gray-200">
+  <footer className="w-full bg-gray-700 text-white">
       <div className="custom-screen pt-16 m-0 w-full">
         
 
@@ -19,12 +19,12 @@ const Footer = () => (
                     <p className="text-sm font-light">En ToolTesis, te acompañamos en la asesoría y redacción de tus tesis, TFG, TFM y proyectos de investigación. Nos especializamos en normas APA, Vancouver, y más, asegurando que tu trabajo cumpla con los estándares académicos y esté bien estructurado.</p>
                     <ul className="text-md pt-2 font-light list-none space-y-2">
                         <li className="flex items-center">
-                            <span className="mr-2 text-sky-300">→</span>
-                            <a target="_blank" href="https://wa.me/56967387656" className="hover:underline text-sky-300">WhatsApp</a>
+                            <span className="mr-2 text-sky-100">→</span>
+                            <a target="_blank" href="https://wa.me/56967387656" className="hover:underline text-sky-200">WhatsApp</a>
                         </li>
                         <li className="flex items-center">
-                            <span className="mr-2 text-sky-300">→</span>
-                            <a target="_blank" href="mailto:proyectos@tooltesis.com" className="hover:underline text-sky-300">proyectos@tooltesis.com</a>
+                            <span className="mr-2 text-sky-100">→</span>
+                            <a target="_blank" href="mailto:proyectos@tooltesis.com" className="hover:underline text-sky-200">proyectos@tooltesis.com</a>
                         </li>
                     </ul>
 
