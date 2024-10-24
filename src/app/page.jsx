@@ -18,13 +18,13 @@ function HomePage() {
         <meta name="robots" content="index" />
       </Head>
       <Hero />
-      <Services />
+      {/* <Services />
       <ListTools />
       <ButtonCTA />
       <StatsSection />
-      <About />
+      <About /> */}
 
-      <Strategys
+      {/* <Strategys
         strTitle="Estrategia de Desarrollo "
         strsubtitle="Enfocados en una metodología ágil, colaboramos estrechamente con nuestros clientes para desarrollar soluciones tecnológicas escalables y personalizadas, desde la planificación hasta la implementación."
         strText={[
@@ -36,13 +36,12 @@ function HomePage() {
         ]}
         strBtn="Leer más"
         path="devStrategy"
-      />
+      /> */}
 
-      <div className="container mx-auto px-8 pb-12">
+      {/* <div className="container mx-auto px-8 pb-12">
         <FeaturesApps />
-      </div>
+      </div> */}
 
-      {/* <FooterCTA /> */}
     </>
   );
 }

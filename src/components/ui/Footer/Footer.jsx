@@ -3,9 +3,9 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 
     const socialNetworks = [
-        { Icon: XIcon, href: "https://x.com/dacsoftware", fontSize: 20},
-        { Icon: InstagramIcon, href: "https://www.instagram.com/dacsoftware", fontSize: 24},
-        // { Icon: FacebookIcon, href: "#", fontSize: 24},
+        // { Icon: XIcon, href: "https://x.com/tooltesis", fontSize: 20},
+        { Icon: InstagramIcon, href: "https://www.instagram.com/tooltesis", fontSize: 24},
+        { Icon: FacebookIcon, href: "https://www.facebook.com/tooltesis", fontSize: 24},
     ];
 
 const Footer = () => (
@@ -16,16 +16,16 @@ const Footer = () => (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="py-4 rounded">
                     <h2 className="text-md font-medium">ENCUÉNTRANOS</h2>
-                    <p className="text-sm font-light">DACS. Servicios especializados que utilizan tecnologías avanzadas como HTML5, CSS, Angular, Node.js, React, Next.js y SharePoint. Desarrollamos aplicaciones web altamente productivas y compatibles con todas las plataformas y dispositivos, con interfaces optimizadas para el usuario final, gestión eficiente de datos e integración robusta del servidor, garantizando aplicaciones más rápidas y con mayor valor.</p>
+                    <p className="text-sm font-light">En ToolTesis, te acompañamos en la asesoría y redacción de tus tesis, TFG, TFM y proyectos de investigación. Nos especializamos en normas APA, Vancouver, y más, asegurando que tu trabajo cumpla con los estándares académicos y esté bien estructurado.</p>
                     <ul className="text-md pt-2 font-light list-none space-y-2">
                         <li className="flex items-center">
                             <span className="mr-2 text-sky-300">→</span>
-                            <a target="_blank" href="https://wa.me/5804141700657" className="hover:underline text-sky-300">WhatsApp</a>
+                            <a target="_blank" href="https://wa.me/56967387656" className="hover:underline text-sky-300">WhatsApp</a>
                         </li>
-                        {/* <li className="flex items-center">
+                        <li className="flex items-center">
                             <span className="mr-2 text-sky-300">→</span>
-                            <a target="_blank" href="https://wa.me/5804141700657" className="hover:underline text-sky-300">contacto@dacsystem.com</a>
-                        </li> */}
+                            <a target="_blank" href="mailto:proyectos@tooltesis.com" className="hover:underline text-sky-300">proyectos@tooltesis.com</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -33,10 +33,14 @@ const Footer = () => (
                 <div className="p-4 rounded">
                     <h2 className="text-md font-medium">SERVICIOS</h2>
                     <ul className="text-sm font-light list-disc pl-5">
-                        <li>Desarrollo web</li>
-                        <li>Desarrollo Móvil</li>
-                        <li>Páginas Web</li>
-                        <li>Marketing</li>
+                        <li>Trabajo Final de Máster</li>
+                        <li>Trabajo Final de Grado</li>
+                        <li>Asesorías </li>
+                        <li>Guión de estudio</li>
+                        <li>Presentaciones </li>
+                        <li>Artículos Científicos </li>
+                        <li>CopyWriting </li>
+                        <li>Matemáticas </li>
                     </ul>
 
                 </div>
@@ -44,9 +48,8 @@ const Footer = () => (
                 <div className="p-4 rounded">
                     <h2 className="text-md font-medium">CONTACTO</h2>
                     <ul className="text-sm font-light list-disc pl-5">
-                        <li>WhatsApp +58 414 1700657.</li> 
-                        <li>Estamos ubicados en Caracas.</li>
-                        {/* <li>contacto@dacsystem.com</li> */}
+                        <li>WhatsApp +56 9 6738 7656.</li> 
+                        <li>Chile</li>
                     </ul>
                 </div>
                 
@@ -54,7 +57,7 @@ const Footer = () => (
                 <div className="p-4 rounded">
                     <h2 className="text-md font-medium">PROPÓSITO</h2>
                     <ul className="text-sm font-light">
-                        <li>Impulsar el futuro de tu empresa hacia un bienestar sostenible.</li>
+                        <li>Guiar a los estudiantes en sus proyectos académicos con asesorías personalizadas, asegurando trabajos de investigación sólidos, claros y ajustados a los más altos estándares académicos.</li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +65,7 @@ const Footer = () => (
 
 
           <div className="mt-10 py-10 border-t items-center justify-between sm:flex w-full text-sm font-light">
-              <p>© 2023 DACS. Todos los derechos reservados.</p>
+              <p>© 2024 Tooltesis. Todos los derechos reservados.</p>
               <div className="flex items-center gap-x-6 mt-6">
                 {socialNetworks.map((network, idx) => (
                     <a
