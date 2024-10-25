@@ -57,25 +57,21 @@ export default function ContactPage() {
                 Cuéntanos sobre tu proyecto
               </p>
               <p className="mt-3">
-                Estamos aquí para ayudarte. Coordina una reunión virtual o
-                presencial para discutir tu proyecto.
+                Estamos aquí para ayudarte. Coordina una reunión para discutir tu proyecto.
               </p>
               <p className="mt-3">
               Envíanos un mensaje de WhatsApp a
-                <a
-                  href="mailto:solicitudes@tesisalacarta.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sky-500 hover:text-sky-600 font-medium duration-150"
-                >
+                
+                <a target="_blank" href="https://wa.me/56967387656" className="m-2 text-gray-850 hover:text-sky-800 font-medium duration-150">
                   +56 9 6738 7656
-                </a> 
+                </a>
+
                 </p>
                 <p>y comencemos a trabajar juntos en tu éxito académico.</p>
-                <h1 className="mt-3 text-sky-6  00 font-medium text-xl">
+                <h1 className="mt-3 text-sky-6  00 font-medium text-xl text-black">
                   Confidencialidad y Seguridad Garantizada
                 </h1>
-                <p className="mt-3">Entendemos lo importante que es mantener la privacidad en tus proyectos académicos. Por eso, en nuestra asesoría de tesis, garantizamos absoluta confidencialidad.</p>
+                <p className="mt-3 text-black">Entendemos lo importante que es mantener la privacidad en tus proyectos académicos. Por eso, en nuestra asesoría de tesis, garantizamos absoluta confidencialidad.</p>
             </div>
             <div className="flex-1 w-full mt-12 lg:mt-0">
               <ContactForm
@@ -103,12 +99,12 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
           id="name"
           name="name"
           required
-          className="peer h-10 w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-800"
+          className="peer h-10 w-full border border-gray-300 rounded-full shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-600"
           placeholder="Nombre"
         />
         <label
           htmlFor="name"
-          className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-sky-800 px-3 peer-focus:px-1"
+          className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-gray-800 px-3 peer-focus:px-1"
         >
           Nombre o Seudónimo*
         </label>
@@ -119,12 +115,12 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
           id="email"
           name="email"
           required
-          className="peer h-10 w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-800"
+          className="peer h-10 w-full border border-gray-300 rounded-full shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-600"
           placeholder="Email"
         />
         <label
           htmlFor="email"
-          className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-sky-800 px-3 peer-focus:px-1"
+          className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-gray-800 px-3 peer-focus:px-1"
         >
           Email*
         </label>
@@ -135,12 +131,12 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
             type="tel"
             id="phone"
             name="phone"
-            className="peer h-10 w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-800"
+            className="peer h-10 w-full border border-gray-300 rounded-full shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-600"
             placeholder="Teléfono"
           />
           <label
             htmlFor="phone"
-            className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-sky-800 px-3 peer-focus:px-1"
+            className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-gray-800 px-3 peer-focus:px-1"
           >
             Teléfono
           </label>
@@ -150,12 +146,12 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
             type="text"
             id="country"
             name="country"
-            className="peer h-10 w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-800"
+            className="peer h-10 w-full border border-gray-300 rounded-full shadow-sm p-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-sky-600"
             placeholder="Valencia, España"
           />
           <label
             htmlFor="country"
-            className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-sky-800 px-3 peer-focus:px-1"
+            className="absolute left-0 -top-3.5 text-gray-500 transition-all duration-300 peer-placeholder-shown:top-2 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-gray-800 px-3 peer-focus:px-1"
           >
             Ciudad | País 
           </label>
@@ -166,7 +162,7 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
           placeholder="Mensaje*"
           name="message"
           required
-          className="w-full h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border border-gray-300 rounded-md shadow-sm p-2 focus:border-sky-800"
+          className="w-full h-36 px-3 py-2 resize-none appearance-none bg-transparent outline-none border border-gray-300 rounded-3xl shadow-sm p-2 focus:border-sky-600"
         ></textarea>
       </div>
       <div>
@@ -188,11 +184,12 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
         </ul>
       </div>
       <div className="pt-1">
-        <Button
-          type="submit"
-          className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 text-white bg-sky-800 hover:bg-sky-600 active:bg-sky-900 ring-offset-2 ring-sky-600 focus:ring"
-          disabled={isSubmitting}
-        >
+      <Button
+        type="submit"
+        style={{ borderRadius: '9999px' }} // Esto asegura que sea completamente redondeado
+        className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 text-white bg-gray-950 hover:bg-gray-900 active:bg-gray-800"
+        disabled={isSubmitting}
+      >
           {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
         </Button>
       </div>

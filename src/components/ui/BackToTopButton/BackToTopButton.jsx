@@ -33,9 +33,9 @@ const BackToTopButton = () => {
     isVisible && (
       <div
         onClick={scrollToTop}
-        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 p-2 rounded-full cursor-pointer text-white text-xs bg-sky-950 hover:bg-sky-800 active:bg-sky-900 transition duration-300 z-50 flex items-center justify-center"
+        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 p-2 rounded-full cursor-pointer text-white text-xs bg-gray-950 hover:gray-sky-900 active:bg-gray-800 transition duration-300 z-50 flex items-center justify-center"
       >
-        Ir arriba
+          Ir arriba
       </div>
     )
   );

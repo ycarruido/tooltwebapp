@@ -1,14 +1,17 @@
 "use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Brand from '../Brand/Brand';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 const Navbar = () => {
     const [state, setState] = useState(false);
     const [showServicesMenu, setShowServicesMenu] = useState(false);
     const [showCompanyMenu, setShowCompanyMenu] = useState(false);
-    const pathname = usePathname(); // Usamos usePathname para observar cambios de ruta
+    const servicesRef = useRef(null);
+    const companyRef = useRef(null);
+    const pathname = usePathname();
     const navigation = [
         { title: "Servicios", path: "#services900" },
         { title: "Empresa", path: "#about901" },
@@ -38,6 +41,8 @@ const Navbar = () => {
         const handleState = () => {
             document.body.classList.remove("overflow-hidden");
             setState(false);
+            setShowServicesMenu(false); // Ocultar el submenú de servicios
+            setShowCompanyMenu(false); // Ocultar el submenú de empresa
         };
         handleState();
         return () => {
@@ -52,8 +57,25 @@ const Navbar = () => {
 
     return (
         <header>
-            <nav className={`bg-white border-b border-sky-300 w-full fixed top-0 left-0 z-10 md:text-sm shadow-md`}>
-                <div className="custom-screen items-center mx-auto md:flex">
+            <div className="bg-[#0080c8] text-right text-white text-xs font-semibold px-4 py-1 fixed top-0 left-0 w-full z-30">
+                <p><WhatsAppIcon/> +56 9 6738 7656</p>
+            </div>
+            <nav className={`bg-white border-b border-sky-300 w-full fixed top-8 left-0 z-20 md:text-sm shadow-md`}>
+                <div className="custom-screen items-center mx-auto md:flex z-30"
+                
+                
+                onClick={() => {
+                    setShowCompanyMenu(false);
+                    setShowServicesMenu(false);
+                }}
+
+                onMouseEnter={() => {
+                    setShowCompanyMenu(false);
+                    setShowServicesMenu(false);
+                }}
+                
+                
+                >
                     <div className="flex items-center justify-between py-2">
                         <Brand />
                         <div className="md:hidden">
@@ -72,19 +94,40 @@ const Navbar = () => {
                             </button>
                         </div>
                     </div>
-                    <div className={`flex-1 pb-3 mt-8 md:pb-0 md:mt-0 md:block ${state ? "" : "hidden"}`}>
+                    <div className={`inline-flex pb-3 mt-8 md:pb-0 md:mt-0 ml-auto justify-end md:block ${state ? "" : "hidden"}`}
+                    
+                    
+                    
+                    
+                    
+                    >
                         <ul className="menu text-gray-900 text-lg justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-900">
                             {
                                 navigation.map((item, idx) => (
                                     <li key={idx} className="relative duration-150 hover:text-gray-500"
                                         onMouseEnter={() => {
-                                            if (item.title === "Servicios") setShowServicesMenu(true);
-                                            if (item.title === "Empresa") setShowCompanyMenu(true);
+                                            // Ocultar el submenú actual antes de mostrar uno nuevo
+                                            if (item.title === "Servicios") {
+                                                setShowCompanyMenu(false);
+                                                setShowServicesMenu(true);
+                                            }
+                                            if (item.title === "Empresa") {
+                                                setShowServicesMenu(false);
+                                                setShowCompanyMenu(true);
+                                            }
                                         }}
-                                        onMouseLeave={() => {
-                                            if (item.title === "Servicios") setShowServicesMenu(false);
-                                            if (item.title === "Empresa") setShowCompanyMenu(false);
-                                        }}
+
+                                        // onMouseLeave={() => {
+                                        //     // Ocultar el submenú al salir del elemento
+                                        //     if (item.title === "Servicios") {
+                                        //         setShowServicesMenu(false);
+                                        //     }
+                                        //     if (item.title === "Empresa") {
+                                        //         setShowCompanyMenu(false);
+                                        //     }
+                                        // }}
+
+
                                     >
                                         <Link
                                             href={item.path}
@@ -96,32 +139,35 @@ const Navbar = () => {
                                         </Link>
                                         {/* Submenú para Servicios */}
                                         {item.title === "Servicios" && showServicesMenu && (
-                                            <div className="absolute left-0 mt-2 bg-white border border-gray-300 shadow-lg rounded-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 w-80"
+                                            <div 
+                                                ref={servicesRef} 
+                                                className="absolute left-0 mt-2 bg-white border border-gray-300 shadow-lg rounded-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 w-80"
                                                 onMouseEnter={() => setShowServicesMenu(true)} // Mantener el submenú visible
                                                 onMouseLeave={() => setShowServicesMenu(false)} // Ocultar el submenú al salir
                                             >
-                                                <ul className="text-sky-600 p-2 font-light">
-                                                    <li><Link href="/servicio1" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Máster</Link></li>
+                                                <ul className="text-gray-600 p-2 font-light">
                                                     <li><Link href="/servicio2" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Grado</Link></li>
+                                                    <li><Link href="/servicio1" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Máster</Link></li>
                                                     <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Asesorías </Link></li>
-                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Guión de estudio </Link></li>
-                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Presentaciones </Link></li>
-                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Artículos Científicos </Link></li>
-                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">CopyWriting </Link></li>
-                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Matemáticas </Link></li>
+                                                    <li><Link href="/servicio4" className="block px-4 py-2 hover:bg-gray-100">Guión de estudio </Link></li>
+                                                    <li><Link href="/servicio5" className="block px-4 py-2 hover:bg-gray-100">Presentaciones </Link></li>
+                                                    <li><Link href="/servicio6" className="block px-4 py-2 hover:bg-gray-100">Artículos Científicos </Link></li>
+                                                    <li><Link href="/servicio7" className="block px-4 py-2 hover:bg-gray-100">CopyWriting </Link></li>
+                                                    <li><Link href="/servicio8" className="block px-4 py-2 hover:bg-gray-100">Matemáticas </Link></li>
                                                 </ul>
                                             </div>
                                         )}
                                         {/* Submenú para Empresa */}
                                         {item.title === "Empresa" && showCompanyMenu && (
-                                            <div className="absolute left-0 mt-2 bg-white border border-gray-300 shadow-lg rounded-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 w-80"
+                                            <div 
+                                                ref={companyRef} 
+                                                className="absolute left-0 mt-2 bg-white border border-gray-300 shadow-lg rounded-lg z-10 transition-opacity duration-300 ease-in-out opacity-100 w-80"
                                                 onMouseEnter={() => setShowCompanyMenu(true)} // Mantener el submenú visible
                                                 onMouseLeave={() => setShowCompanyMenu(false)} // Ocultar el submenú al salir
                                             >
-                                                <ul className="text-sky-600 p-2 font-light">
-                                                    <li><Link href="/empresa1" className="block px-4 py-2 hover:bg-gray-100">Empresa 1</Link></li>
-                                                    <li><Link href="/empresa2" className="block px-4 py-2 hover:bg-gray-100">Empresa 2</Link></li>
-                                                    <li><Link href="/empresa3" className="block px-4 py-2 hover:bg-gray-100">Empresa 3</Link></li>
+                                                <ul className="text-gray-600 p-2 font-light">
+                                                    <li><Link href="/empresa1" className="block px-4 py-2 hover:bg-gray-100"> Sobre ToolTesis</Link></li>
+                                                    <li><Link href="/empresa2" className="block px-4 py-2 hover:bg-gray-100">Trabaja con nosotros</Link></li>
                                                 </ul>
                                             </div>
                                         )}
@@ -130,7 +176,7 @@ const Navbar = () => {
                             }
                             <Link
                                 href="/contact"
-                                className="menu block font-medium text-sm text-white bg-sky-800 hover:bg-sky-600 active:bg-sky-900 md:inline-block px-4 py-2 rounded-lg text-center"
+                                className="menu block font-medium text-sm text-white bg-gray-950 hover:bg-gray-900 active:bg-gray-800 md:inline-block px-4 py-2 text-center rounded-full"
                             >
                                 Contacto
                             </Link>
@@ -140,6 +186,6 @@ const Navbar = () => {
             </nav>
         </header>
     );
-}
+};
 
 export default Navbar;
