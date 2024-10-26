@@ -10,7 +10,7 @@ import WindowIcon from "@mui/icons-material/Window";
 import { Link } from "@mui/material";
 
 import ServicesCTA from "../../../components/ui/ServicesCTA/ServicesCTA";
-import Features from "../components/ui/Features/Features";
+import Features from "../../../components/ui/Features/Features";
 
 function WebDev() {
   return (

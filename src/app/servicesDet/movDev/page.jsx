@@ -7,7 +7,7 @@ import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 import { Link } from "@mui/material";
 
 import ServicesCTA from "../../../components/ui/ServicesCTA/ServicesCTA";
-import Features from "../components/ui/Features/Features";
+import Features from "../../../components/ui/Features/Features";
 
 import AppleIcon from "@mui/icons-material/Apple";
 import AndroidIcon from "@mui/icons-material/Android";
@@ -358,7 +358,7 @@ function MovDev() {
         path="/features"
       /> 
 
-      
+
     </div>
   );
 }

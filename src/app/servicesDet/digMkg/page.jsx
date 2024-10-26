@@ -1,6 +1,6 @@
 import React from "react";
 import ServicesCTA from "../../../components/ui/ServicesCTA/ServicesCTA";
-import Features from "../components/ui/Features/Features";
+import Features from "../../../components/ui/Features/Features";
 import NavLink from '../../../components/ui/NavLink/NavLink'
 
 
