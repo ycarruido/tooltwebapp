@@ -11,7 +11,7 @@ const Strategys = ({ strTitle, strsubtitle, strText = [], strBtn, path = "/devSt
         </p>
         <p className="mt-3 text-gray-900 text-left pb-3">{strsubtitle}</p>
 
-        <ul className="space-y-2 pb-6">
+        <ul className="space-y-2 pb-10">
           {strText.map((item, index) => (
             <li key={index} className="items-left justify-between">
               <DoneAllIcon className="text-sky-950" />  
@@ -21,7 +21,8 @@ const Strategys = ({ strTitle, strsubtitle, strText = [], strBtn, path = "/devSt
         </ul>
         <NavLink
           href={path}
-          className="inline-block mt-4 font-medium text-sm text-white bg-sky-800 hover:bg-sky-600 active:bg-sky-900 px-6 py-3 rounded-md"
+          style={{ borderRadius: '9999px' }}
+          className="inline-block font-medium text-sm text-white bg-gray-950 hover:bg-gray-900 active:bg-gray-900 px-6 py-3"
         >
           {strBtn}
         </NavLink>
