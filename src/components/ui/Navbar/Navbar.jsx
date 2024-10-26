@@ -16,7 +16,7 @@ const Navbar = () => {
         { title: "Servicios", path: "#services900" },
         { title: "Empresa", path: "#about901" },
         { title: "Blog", path: "/portfolio" },
-        { title: "FAQ", path: "/preguntas" }
+        { title: "FAQ", path: "/faq" }
     ];
 
     const smoothScroll = (e, path) => {
