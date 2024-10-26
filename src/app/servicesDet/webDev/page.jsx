@@ -10,7 +10,7 @@ import WindowIcon from "@mui/icons-material/Window";
 import { Link } from "@mui/material";
 
 import ServicesCTA from "../../../components/ui/ServicesCTA/ServicesCTA";
-import Strategys from "../../../components/ui/Strategys/Strategys";
+import Features from "../components/ui/Features/Features";
 
 function WebDev() {
   return (
@@ -281,19 +281,19 @@ function WebDev() {
         />
       </div>
 
-      <Strategys
-        strTitle="Estrategia de Desarrollo "
-        strsubtitle="Enfocados en una metodología ágil, colaboramos estrechamente con nuestros clientes para desarrollar soluciones tecnológicas escalables y personalizadas, desde la planificación hasta la implementación."
+      <Features
+        strTitle="Características destacadas"
+        strsubtitle="Conoce lo que nos hace únicos en ToolTesis"
         strText={[
-          "Análisis de requerimientos y planificación.",
-          "Diseño de prototipos y pruebas de concepto.",
-          "Desarrollo ágil con iteraciones continuas.",
-          "Integración y pruebas exhaustivas.",
-          "Implementación y soporte continuo.",
+          "Asesoría Personalizada",
+          "Confidencialidad Asegurada",
+          "Uso de Normas Reconocidas",
+          "Control de Plagio",
+          "Equipo Multidisciplinario",
         ]}
         strBtn="Leer más"
-        path="/devStrategy"
-      />
+        path="/features"
+      /> 
 
 
     </div>

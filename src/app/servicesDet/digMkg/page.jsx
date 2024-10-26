@@ -1,6 +1,6 @@
 import React from "react";
 import ServicesCTA from "../../../components/ui/ServicesCTA/ServicesCTA";
-import Strategys from "../../../components/ui/Strategys/Strategys";
+import Features from "../components/ui/Features/Features";
 import NavLink from '../../../components/ui/NavLink/NavLink'
 
 
@@ -127,19 +127,19 @@ function DigMkg() {
       </section>
 
 
-      <Strategys
-        strTitle="Estrategia de Marketing Digital"
-        strsubtitle="Trabajamos de manera ágil y colaborativa con nuestros clientes para desarrollar estrategias de marketing personalizadas que impulsen el crecimiento de su negocio. Desde la investigación inicial hasta la optimización continua, nos aseguramos de que cada etapa esté diseñada para generar leads y maximizar el ROI."
+      <Features
+        strTitle="Características destacadas"
+        strsubtitle="Conoce lo que nos hace únicos en ToolTesis"
         strText={[
-          "Análisis de mercado y definición de objetivos",
-          "Investigación de palabras clave y análisis de competencia",
-          "Desarrollo de campañas SEM",
-          "Optimización continua (CRO)",
-          "Monitoreo y ajuste de estrategias",
+          "Asesoría Personalizada",
+          "Confidencialidad Asegurada",
+          "Uso de Normas Reconocidas",
+          "Control de Plagio",
+          "Equipo Multidisciplinario",
         ]}
         strBtn="Leer más"
-        path="/devStrategy"
-      />
+        path="/features"
+      /> 
 
 
     </div>
