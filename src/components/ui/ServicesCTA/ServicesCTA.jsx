@@ -9,7 +9,6 @@ const ServicesCTA = ({ strText, strQ, strBtn, bgColor }) => {
           <div className="flex-1 mt-6 lg:mt-0 lg:max-w-lg pb-3">
             <ul className="mt-6 space-y-4 text-white text-sm md:text-base lg:text-lg list-outside pl-6">
               <li className="flex items-start space-x-2">
-                <span className="text-xl">→</span>
                 <span>
                   {strText}
                 </span>
@@ -22,7 +21,8 @@ const ServicesCTA = ({ strText, strQ, strBtn, bgColor }) => {
             </p>
             <NavLink
               href="/contact"
-              className="inline-block mt-4 font-medium text-sm text-white bg-sky-800 hover:bg-sky-600 active:bg-sky-900 px-6 py-3 rounded-md"
+              style={{ borderRadius: '9999px' }}
+              className="inline-block mt-4 font-medium text-sm text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700 px-6 py-3"
             >
               {strBtn}
             </NavLink>

@@ -6,7 +6,7 @@ import FooterCTA from "../components/ui/ActionCall/ActionCall";
 import Hero from "../components/ui/Hero/Hero";
 import ListTools from "../components/ui/ListTools/ListTools";
 import Testimonials from "../components/ui/Testimonials/Testimonials";
-import Strategys from "../components/ui/Strategys/Strategys";
+import OtherFeatures from "../components/ui/Features/Features";
 import About from "../components/ui/About/About";
 import StatsSection from "../components/ui/StatsSection/StatsSection";
 import FeaturesApps from "../components/ui/FeaturesApps/FeaturesApps";
@@ -24,23 +24,23 @@ function HomePage() {
       <StatsSection />
       <About /> */}
 
-      {/* <Strategys
-        strTitle="Estrategia de Desarrollo "
-        strsubtitle="Enfocados en una metodología ágil, colaboramos estrechamente con nuestros clientes para desarrollar soluciones tecnológicas escalables y personalizadas, desde la planificación hasta la implementación."
+      <OtherFeatures
+        strTitle="Características destacadas"
+        strsubtitle="Conoce lo que nos hace únicos en ToolTesis"
         strText={[
-          "Análisis de requerimientos y planificación.",
-          "Diseño de prototipos y pruebas de concepto.",
-          "Desarrollo ágil con iteraciones continuas.",
-          "Integración y pruebas exhaustivas.",
-          "Implementación y soporte continuo.",
+          "Asesoría Personalizada",
+          "Confidencialidad Asegurada",
+          "Uso de Normas Reconocidas",
+          "Control de Plagio",
+          "Equipo Multidisciplinario",
         ]}
         strBtn="Leer más"
-        path="devStrategy"
-      /> */}
+        path="/features"
+      /> 
 
       {/* <div className="container mx-auto px-8 pb-12">
         <FeaturesApps />
-      </div> */}
+      </div>  */}
 
     </>
   );

@@ -15,7 +15,7 @@ const Navbar = () => {
     const navigation = [
         { title: "Servicios", path: "#services900" },
         { title: "Empresa", path: "#about901" },
-        { title: "Blog", path: "/portfolio" },
+        { title: "Blog", path: "/" },
         { title: "FAQ", path: "/faq" }
     ];
 
@@ -176,7 +176,7 @@ const Navbar = () => {
                             }
                             <Link
                                 href="/contact"
-                                className="menu block font-medium text-sm text-white bg-gray-950 hover:bg-gray-900 active:bg-gray-800 md:inline-block px-4 py-2 text-center rounded-full"
+                                className="menu block font-medium text-sm text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700 md:inline-block px-4 py-2 text-center rounded-full"
                             >
                                 Contacto
                             </Link>

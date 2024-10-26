@@ -183,11 +183,11 @@ function ContactForm({ servicesItems, isSubmitting, handleSubmit, formSent }) {
           ))}
         </ul>
       </div>
-      <div className="pt-1">
+      <div className="pt-10">
       <Button
         type="submit"
         style={{ borderRadius: '9999px' }} // Esto asegura que sea completamente redondeado
-        className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 text-white bg-gray-950 hover:bg-gray-900 active:bg-gray-800"
+        className="w-full sm:w-full md:w-1/2 lg:w-1/2 xl:w-1/2 text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700"
         disabled={isSubmitting}
       >
           {isSubmitting ? "Enviando..." : "Enviar Mensaje"}

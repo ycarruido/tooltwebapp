@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Strategys from '../../components/ui/Strategys/Strategys'
+import Features from '../../components/ui/Features/Features'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 
@@ -182,8 +182,8 @@ const FAQ = () => {
           ))}
         </div>
       </div>
-      <Strategys
-        strTitle="Características Destacadas"
+      <Features
+        strTitle="Características destacadas"
         strsubtitle="Conoce lo que nos hace únicos en ToolTesis."
         strText={[
           "Asesoría Personalizada",
@@ -193,7 +193,7 @@ const FAQ = () => {
           "Equipo Multidisciplinario",
         ]}
         strBtn="Leer más"
-        path="/"
+        path="/features"
       />
     </section>
   );

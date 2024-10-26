@@ -1,8 +1,8 @@
 "use client";
 import NavLink from "../NavLink/NavLink";
-import DoneAllIcon from "@mui/icons-material/DoneAll";
+import LabelImportantIcon from '@mui/icons-material/LabelImportant';
 
-const Strategys = ({ strTitle, strsubtitle, strText = [], strBtn, path = "/devStrategy" }) => {
+const Features = ({ strTitle, strsubtitle, strText = [], strBtn, path = "/devStrategy" }) => {
   return (
     <section className="py-16">
       <div className="container mx-auto px-8">
@@ -14,15 +14,15 @@ const Strategys = ({ strTitle, strsubtitle, strText = [], strBtn, path = "/devSt
         <ul className="space-y-2 pb-10">
           {strText.map((item, index) => (
             <li key={index} className="items-left justify-between">
-              <DoneAllIcon className="text-sky-950" />  
-              <span className="pr-10 ml-1">{item}</span>{" "}
+              <LabelImportantIcon className="text-sky-600" />  
+              <span className="pr-12 ml-2">{item}</span>{" "}
             </li>
           ))}
         </ul>
         <NavLink
           href={path}
           style={{ borderRadius: '9999px' }}
-          className="inline-block font-medium text-sm text-white bg-gray-950 hover:bg-gray-900 active:bg-gray-900 px-6 py-3"
+          className="inline-block font-medium text-sm text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700 px-6 py-3"
         >
           {strBtn}
         </NavLink>
@@ -31,4 +31,4 @@ const Strategys = ({ strTitle, strsubtitle, strText = [], strBtn, path = "/devSt
   );
 };
 
-export default Strategys;
+export default Features;
