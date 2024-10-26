@@ -21,8 +21,7 @@ function HomePage() {
       {/* <Services />
       <ListTools />
       <ButtonCTA />
-      <StatsSection />
-      <About /> */}
+      <StatsSection />*/}
 
       <OtherFeatures
         strTitle="Características destacadas"

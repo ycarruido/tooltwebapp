@@ -14,7 +14,7 @@ const Navbar = () => {
     const pathname = usePathname();
     const navigation = [
         { title: "Servicios", path: "#services900" },
-        { title: "Empresa", path: "#about901" },
+        { title: "Empresa", path: "/about" },
         { title: "Blog", path: "/" },
         { title: "FAQ", path: "/faq" }
     ];
@@ -166,7 +166,7 @@ const Navbar = () => {
                                                 onMouseLeave={() => setShowCompanyMenu(false)} // Ocultar el submenú al salir
                                             >
                                                 <ul className="text-gray-600 p-2 font-light">
-                                                    <li><Link href="/empresa1" className="block px-4 py-2 hover:bg-gray-100"> Sobre ToolTesis</Link></li>
+                                                    <li><Link href="/about" className="block px-4 py-2 hover:bg-gray-100"> Sobre ToolTesis</Link></li>
                                                     <li><Link href="/empresa2" className="block px-4 py-2 hover:bg-gray-100">Trabaja con nosotros</Link></li>
                                                 </ul>
                                             </div>
