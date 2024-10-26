@@ -23,7 +23,7 @@ import axios from "axios";
 
 
     // Validar reCAPTCHA token
-    const secretKey = process.env.DACS_GCAPTCHA_SECRETKEY; // Asegúrate de tener esta variable en tu archivo .env
+    const secretKey = process.env.TOOLTESIS_GCAPTCHA_SECRETKEY; // Asegúrate de tener esta variable en tu archivo .env
     const response = await axios.post(
       `https://www.google.com/recaptcha/api/siteverify`,
       null,

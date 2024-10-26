@@ -48,7 +48,7 @@ export default function ContactPage() {
 
   return (
     //se envuelve el form para usar reCAPTCHA
-    <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_DACS_GCAPTCHA_SITEKEY}>
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_TOOLTESIS_GCAPTCHA_SITEKEY}>
       <div className="mt-14 pb-12">
         <div className="custom-screen text-gray-700">
           <div className="max-w-lg mx-auto gap-12 flex flex-col lg:flex-row lg:max-w-none">
