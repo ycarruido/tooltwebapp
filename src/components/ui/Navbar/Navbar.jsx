@@ -146,13 +146,13 @@ const Navbar = () => {
                                                 onMouseLeave={() => setShowServicesMenu(false)} // Ocultar el submenú al salir
                                             >
                                                 <ul className="text-gray-600 p-2 font-light">
-                                                    <li><Link href="/servicio2" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Grado</Link></li>
-                                                    <li><Link href="/servicio1" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Máster</Link></li>
-                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Asesorías </Link></li>
-                                                    <li><Link href="/servicio4" className="block px-4 py-2 hover:bg-gray-100">Guión de estudio </Link></li>
-                                                    <li><Link href="/servicio5" className="block px-4 py-2 hover:bg-gray-100">Presentaciones </Link></li>
-                                                    <li><Link href="/servicio6" className="block px-4 py-2 hover:bg-gray-100">Artículos Científicos </Link></li>
-                                                    <li><Link href="/servicio7" className="block px-4 py-2 hover:bg-gray-100">CopyWriting </Link></li>
+                                                    <li><Link href="/servicio1" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Grado</Link></li>
+                                                    <li><Link href="/servicio2" className="block px-4 py-2 hover:bg-gray-100">Trabajo Final de Máster</Link></li>
+                                                    <li><Link href="/servicio3" className="block px-4 py-2 hover:bg-gray-100">Tesis </Link></li>
+                                                    <li><Link href="/servicio4" className="block px-4 py-2 hover:bg-gray-100">Asesorías </Link></li>
+                                                    <li><Link href="/servicio5" className="block px-4 py-2 hover:bg-gray-100">Guión de estudio </Link></li>
+                                                    <li><Link href="/servicio6" className="block px-4 py-2 hover:bg-gray-100">Presentaciones </Link></li>
+                                                    <li><Link href="/servicio7" className="block px-4 py-2 hover:bg-gray-100">Artículos Científicos </Link></li>
                                                     <li><Link href="/servicio8" className="block px-4 py-2 hover:bg-gray-100">Ciencias Matemáticas </Link></li>
                                                 </ul>
                                             </div>
