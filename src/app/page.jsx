@@ -18,9 +18,9 @@ function HomePage() {
         <meta name="robots" content="index" />
       </Head>
       <Hero />
-      {/* <Services />
+      <Services />
       <ListTools />
-      <ButtonCTA />
+      {/*<ButtonCTA />
       <StatsSection />*/}
 
       <OtherFeatures

@@ -26,7 +26,7 @@ function About() {
       <div className="p-4 space-y-8">
 
       <p className="pb-2">
-        Tooltesis es una empresa dedicada a brindar asesoría académica integral en proyectos de TFG y TFM. Nuestro equipo de profesionales se enfoca en ofrecer soluciones
+        <strong>Tooltesis</strong> es una empresa dedicada a brindar asesoría académica integral en proyectos de <strong>TFG y TFM</strong>. Nuestro equipo de profesionales se enfoca en ofrecer soluciones
         prácticas y efectivas para las necesidades académicas de cada
         estudiante.
       </p>
