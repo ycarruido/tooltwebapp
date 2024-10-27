@@ -6,10 +6,6 @@ import wps01 from "../../../../public/img/wps01.svg";
 import mkgs01 from "../../../../public/img/mkgs01.svg";
 import movs01 from "../../../../public/img/movs01.svg";
 import Link from "next/link";
-import BatteryFullIcon from '@mui/icons-material/BatteryFull';
-import WifiIcon from '@mui/icons-material/Wifi';
-import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
-import ForwardToInboxIcon from '@mui/icons-material/ForwardToInbox';
 
 const Services = () => {
   const services = [
@@ -26,7 +22,7 @@ const Services = () => {
       desc: "Nos encargamos de redactar tu Trabajo Final de Máster, creando un proyecto completo y bien estructurado que cumpla con todas las exigencias académicas",
     },
     {
-      srcImage: mkgs01,
+      srcImage: movs01,
       title: "Tesis",
       subtitle: "Redacción y defensa",
       desc: "Servicio integral de redacción de tesis, asegurando que tu trabajo cumpla con los estándares académicos y esté estructurado de manera clara y efectiva",
@@ -64,32 +60,31 @@ const Services = () => {
   ];
 
   return (
-    <SectionWrapper id="services900" className="pt-20 pb-12 bg-gray-100">
+    <SectionWrapper id="services900" className="pt-24 pb-12">
       <div className="container mx-auto px-8">
-        <p className="text-black text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl pb-10">
+        <p className="text-black text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl pb-6">
           Nuestros Servicios
         </p>
-        <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2">
           {services.map((service, index) => (
-            <div key={index} className="flex flex-col items-left text-left rounded-3xl bg-white p-[3rem] text-gray-700 border-2 border-[#009fe3] relative shadow-lg">
-              {/* Parte superior que simula la pantalla del teléfono */}
-              <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-2 bg-gray-100 rounded-t-3xl">
-                <span className="text-sm">12:4{index}</span>
-                <div className="flex items-center space-x-2">
-                  <BatteryFullIcon fontSize="small" />
-                  <WifiIcon fontSize="small" />
-                  <SignalCellularAltIcon fontSize="small" />
-                </div>
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-lg border relative"
+              
+            >
+              <div className="bg-sky-600 p-4 rounded-t-lg">
+                <h3 className="text-white text-3xl font-semibold mb-1">{service.title}</h3>
+                <h6 className="text-lg text-gray-100">{service.subtitle}</h6>
               </div>
-              <div className="absolute top-9 left-0 right-0 flex justify-between items-center p-2 bg-sky-100">
-                <span className="text-sm"><ForwardToInboxIcon /></span>
+              <div className="p-6">
+                
+                <ul className="list-disc pl-5">
+                  <li >
+                    <p className="text-gray-900">{service.desc}</p>
+                  </li>
+                </ul>
+                
               </div>
-              <h1 className="text-3xl font-semibold pt-10">{service.title}</h1>
-              {/* <div className="w-20 h-20 mb-4">
-                <Image src={service.srcImage} alt={service.title} width={80} height={80} />
-              </div> */}
-              <h6 className="text-lg mb-2 text-gray-600 pb-10">{service.subtitle}</h6>
-              <p className="text-gray-900">{service.desc}</p>
             </div>
           ))}
         </div>

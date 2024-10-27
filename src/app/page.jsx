@@ -20,8 +20,8 @@ function HomePage() {
       <Hero />
       <Services />
       <ListTools />
-      {/*<ButtonCTA />
-      <StatsSection />*/}
+     <ButtonCTA />
+      <StatsSection />
 
       <OtherFeatures
         strTitle="Características destacadas"

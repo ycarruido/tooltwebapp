@@ -1,9 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import CodeOffIcon from '@mui/icons-material/CodeOff';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import ScheduleIcon from '@mui/icons-material/Schedule';
-import HandshakeIcon from '@mui/icons-material/Handshake';
+import AddIcon from '@mui/icons-material/Add';
 
 const Stat = ({ IconComponent, number, label }) => {
   const [count, setCount] = useState(0);
@@ -48,8 +45,8 @@ const Stat = ({ IconComponent, number, label }) => {
 
   return (
     <div className="text-center">
-      <div className="text-6xl text-gray-950 font-medium mx-auto sm:text-7xl mb-2">
-        <IconComponent className="mb-2" />
+      <div className="text-[3rem] text-sky-600 font-medium mx-auto sm:text-[3rem] mb-2">
+        <span className="text-black"><IconComponent className="mb-2" /></span>
         {count}
       </div>
       <p className="text-lg text-gray-700">{label}</p>
@@ -59,19 +56,11 @@ const Stat = ({ IconComponent, number, label }) => {
 
 const StatsSection = () => {
   const stats = [
-    { IconComponent: CodeOffIcon, number: 12, label: "Lenguajes y Herramientas" },
-    { IconComponent: GroupAddIcon, number: 3, label: "Colaboraciones Activas" },
-    { IconComponent: ScheduleIcon, number: 247, label: "Disponibilidad" },
-    { IconComponent: HandshakeIcon, number: 8, label: "Años de Experiencia" },
+    { IconComponent: AddIcon, number: 10, label: "Años de experiencia" },
+    { IconComponent: AddIcon, number: 300, label: "Proyectos académicos" },
+    { IconComponent: AddIcon, number: 20000, label: "Horas dedicadas" },
+    { IconComponent: AddIcon, number: 50, label: "Especialidades" },
   ];
-
-
-  // const stats = [
-  //   { IconComponent: CodeOffIcon, number: 60, label: "Proyectos Realizados" },
-  //   { IconComponent: GroupAddIcon, number: 37, label: "Clientes Satisfechos" },
-  //   { IconComponent: ScheduleIcon, number: 11, label: "Años de Experiencia" },
-  //   { IconComponent: HandshakeIcon, number: 6, label: "Alianzas Estratégicas" },
-  // ];
 
 
   return (
