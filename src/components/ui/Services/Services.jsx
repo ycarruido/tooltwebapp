@@ -71,7 +71,7 @@ const Services = () => {
         </p>
         <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-2">
           {services.map((service, index) => (
-            <div key={index} className="flex flex-col items-center text-center rounded-3xl bg-white p-[3rem] text-gray-700 border-2 border-[#009fe3] relative shadow-lg">
+            <div key={index} className="flex flex-col items-left text-left rounded-3xl bg-white p-[3rem] text-gray-700 border-2 border-[#009fe3] relative shadow-lg">
               {/* Parte superior que simula la pantalla del teléfono */}
               <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-2 bg-gray-100 rounded-t-3xl">
                 <span className="text-sm">12:4{index}</span>
