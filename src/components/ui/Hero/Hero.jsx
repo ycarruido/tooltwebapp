@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const Hero = () => {
   const texts = [
     "Redacción experta",
-    "Comprometidos con tu futuro",
+    "Apostando por tu futuro",
     "Asesoría académica",
   ];
   const [currentText, setCurrentText] = useState(texts[0]);
@@ -31,7 +31,7 @@ const Hero = () => {
       className="flex items-center"
       style={{
         height: "calc(100vh - 60px)",
-        backgroundImage: "url('/img/banner03.webp')",
+        backgroundImage: "url('/img/banner04.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
