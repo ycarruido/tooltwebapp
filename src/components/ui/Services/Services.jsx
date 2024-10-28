@@ -10,6 +10,7 @@ import Link from "next/link";
 const Services = () => {
   const services = [
     {
+      id: 'services901',
       srcImage: wapps01,
       title: "TFG",
       subtitle: "Trabajo Final de Grado",
@@ -17,6 +18,7 @@ const Services = () => {
       url: '/servicesDet/Tfg'
     },
     {
+      id: 'services902',
       srcImage: movs01,
       title: "TFM",
       subtitle: "Trabajo Final de Máster",
@@ -24,6 +26,7 @@ const Services = () => {
       url: '/servicesDet/Tfm'
     },
     {
+      id: 'services903',
       srcImage: movs01,
       title: "Tesis",
       subtitle: "Redacción y defensa",
@@ -31,6 +34,7 @@ const Services = () => {
       url: '/servicesDet/Tesis'
     },
     {
+      id: 'services904',
       srcImage: wps01,
       title: "Asesorías",
       subtitle: "Orientación profesional",
@@ -38,6 +42,7 @@ const Services = () => {
       url: '/servicesDet/Asesorias'
     },
     {
+      id: 'services905',
       srcImage: mkgs01,
       title: "Guión de estudio",
       subtitle: "Planificación estructurada",
@@ -45,6 +50,7 @@ const Services = () => {
       url: '/servicesDet/Guion'
     },
     {
+      id: 'services906',
       srcImage: mkgs01,
       title: "Presentaciones",
       subtitle: "PowerPoint | Slides | Canva | Prezi",
@@ -52,6 +58,7 @@ const Services = () => {
       url: '/servicesDet/Presentaciones'
     },
     {
+      id: 'services907',
       srcImage: mkgs01,
       title: "Artículos Científicos",
       subtitle: "Redacción, revisión y publicación",
@@ -59,6 +66,7 @@ const Services = () => {
       url: '/servicesDet/Articulos'
     },
     {
+      id: 'services908',
       srcImage: mkgs01,
       title: "Ciencias Matemáticas",
       subtitle: "Álgebra, cálculo, y estadística",
@@ -81,7 +89,7 @@ const Services = () => {
               
             >
               <Link href={service.url}>
-              <div className="bg-sky-600 p-4 rounded-t-lg">
+              <div className="bg-sky-600 p-4 rounded-t-lg" id={service.id}>
                 <h3 className="text-white text-3xl font-semibold mb-1">{service.title}</h3>
                 <h6 className="text-lg text-gray-100">{service.subtitle}</h6>
               </div>
@@ -92,7 +100,6 @@ const Services = () => {
                     <p className="text-gray-900">{service.desc}</p>
                   </li>
                 </ul>
-                
               </div>
               </Link>
             </div>

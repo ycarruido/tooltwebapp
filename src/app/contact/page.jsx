@@ -19,7 +19,8 @@ export default function ContactPage() {
     "Artículos Científicos",
     "CopyWriting",
     "Matemáticas",
-    "Información ",
+    "Soy profesor, quiero trabajar en ToolTesis",
+    "Información",
   ];
 
   const handleSubmit = async (event, executeRecaptcha) => {

@@ -7,57 +7,85 @@ function Matematicas() {
       {/* CTA */}
       <div className="relative w-screen left-1/2 -translate-x-1/2 pb-5">
         <ServicesCTA
-          strText="En Tooltesis, nos enfocamos en acompañar de cerca a cada estudiante y mantener una comunicación constante. Esto nos permite crear proyectos académicos, TFG y TFM a la medida, logrando resultados de alta calidad que cumplen con las expectativas de cada cliente."
-          strQ="¿Necesitas hacer un TFG o un TFM?"
-          strBtn="Obtén asesoramiento"
-          bgColor="bg-gray-600"
+          strText="¿Tienes problemas con disertaciones, cálculos o análisis de datos en matemáticas o ciencias? En Tooltesis estamos aquí para hacer que estos retos sean mucho más llevaderos."
+          strQ="¿Necesitas apoyo con tareas de matemáticas o ciencias?"
+          strBtn="Contacta con nosotros"
+          bgColor="bg-blue-600"
         />
       </div>
       {/* Título principal */}
-      <div className="text-left mb-12">
-        <p className="text-black text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl pb-2">
-          Características Destacadas
+      <div className="text-left mb-12 pt-10">
+        <p className="text-black text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl pb-6">
+          Asesoría en Matemáticas y Ciencias
         </p>
         <p className="mt-4 text-gray-700">
-          Descubre cómo cada aspecto de nuestro servicio está diseñado para brindarte un apoyo completo y de calidad en tus proyectos académicos, desde la asesoría inicial hasta la entrega final.
+          Comprendemos lo complejo que puede ser enfrentarse a informes
+          científicos, cálculos avanzados y teorías matemáticas. Es por eso que
+          te ofrecemos un apoyo personalizado para hacer tus tareas de ciencias
+          y matemáticas de manera efectiva y sin estrés. Nos encargamos de los
+          cálculos, análisis estadísticos, investigaciones y mucho más.
+        </p>
+
+        <div className="p-4">
+          <h2 className="mt-4 text-gray-700 text-3xl font-medium pb-4">
+            Servicios de Ciencias
+          </h2>
+          <ul className="list-disc pl-5">
+            <li>
+              <strong>Investigación de Problemas:</strong> Te ayudamos a
+              identificar y plantear los problemas fundamentales antes de
+              generar hipótesis claras.
+            </li>
+            <li>
+              <strong>Recopilación de Evidencia:</strong> Ya sea que tengas
+              una hipótesis o te ayudemos a formularla, investigamos y
+              recopilamos datos para comprobar o refutar tus ideas.
+            </li>
+          </ul>
+        </div>
+
+        <div className="p-4">
+          <h2 className="mt-4 text-gray-700 text-3xl font-medium pb-4">
+            Servicios de Matemáticas
+          </h2>
+          <ul className="list-disc pl-5">
+            <li>
+              <strong>Resolución de Ecuaciones:</strong> Nos encargamos de las
+              ecuaciones más complejas, explicándote cada paso para que comprendas el proceso.
+            </li>
+            <li>
+              <strong>Preguntas de Opción Múltiple:</strong> Te aseguramos de
+              elegir siempre la opción correcta en ejercicios matemáticos.
+            </li>
+            <li>
+              <strong>Optimización y Modelos:</strong> Diseñamos modelos
+              matemáticos, estudios de casos y análisis de optimización para tus
+              proyectos.
+            </li>
+          </ul>
+        </div>
+
+        <p className="mt-6 text-gray-700">
+          Ya sea que necesites ayuda en cálculos estadísticos, análisis de datos o en la redacción de
+          disertaciones, estamos aquí para ayudarte. ¡Relájate y deja que nos ocupemos de los detalles complejos!
         </p>
       </div>
+
       {/* Sección de características */}
       {[
         {
-          title: "1. Asesoría Personalizada",
+          title: "Asesoría Científica",
           description:
-            "Cada proyecto académico es un reto diferente, y en Tooltesis entendemos lo importante que es adaptarse a tus necesidades específicas. Por eso, ofrecemos un enfoque individualizado que se ajusta a tus objetivos y temáticas.",
-          imgSrc: "/img/análisisRequerimientos.webp",
-          alt: "Análisis de Requerimientos",
+            "Desde investigaciones hasta recopilación de evidencia, nuestro equipo está listo para ayudarte a superar cualquier desafío en tus proyectos científicos.",
+          imgSrc: "/img/asesoriaCientifica.webp",
+          alt: "Asesoría Científica",
         },
         {
-          title: "2. Confidencialidad Asegurada",
+          title: "Soluciones Matemáticas",
           description:
-            "Sabemos que la privacidad es fundamental. Por eso, implementamos un sistema de confidencialidad total, garantizando que tu información personal esté siempre segura.",
-          imgSrc: "/img/disenodeprototipos.webp",
-          alt: "Diseño de Prototipos",
-        },
-        {
-          title: "3. Uso de Normas Reconocidas",
-          description:
-            "Nos especializamos en los estándares de citación y estilo académico más reconocidos, asegurando la credibilidad y profesionalismo de cada trabajo.",
-          imgSrc: "/img/agile_development.webp",
-          alt: "Desarrollo Ágil",
-        },
-        {
-          title: "4. Control de Plagio",
-          description:
-            "La originalidad es clave en el éxito académico. Utilizamos software avanzado de detección de plagio, garantizando que cada trabajo sea 100% original.",
-          imgSrc: "/img/pruebas_exhaustivas.webp",
-          alt: "Integración y Pruebas Exhaustivas",
-        },
-        {
-          title: "5. Equipo Multidisciplinario",
-          description:
-            "Contamos con un equipo de profesionales especializados en distintas áreas del conocimiento, asegurando que tu trabajo cuente con la calidad que esperas.",
-          imgSrc: "/img/diseñodeprototipos.webp",
-          alt: "Implementación y Soporte Continuo",
+            "Resolvemos ecuaciones complejas, optimizamos modelos y proporcionamos explicaciones claras para asegurar tu comprensión en todo momento.",
+          imgSrc: "/img/solucionesMatematicas.webp",
+          alt: "Soluciones Matemáticas",
         },
       ].map((feature, index) => (
         <div

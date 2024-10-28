@@ -7,57 +7,69 @@ function Articulos() {
       {/* CTA */}
       <div className="relative w-screen left-1/2 -translate-x-1/2 pb-5">
         <ServicesCTA
-          strText="En Tooltesis, nos enfocamos en acompañar de cerca a cada estudiante y mantener una comunicación constante. Esto nos permite crear proyectos académicos, TFG y TFM a la medida, logrando resultados de alta calidad que cumplen con las expectativas de cada cliente."
-          strQ="¿Necesitas hacer un TFG o un TFM?"
-          strBtn="Obtén asesoramiento"
-          bgColor="bg-gray-600"
+          strText="¿Necesitas ayuda para redactar artículos científicos y académicos de alta calidad? En Tooltesis te ofrecemos apoyo experto."
+          strQ="¿Te solicitaron un artículo científico?"
+          strBtn="Contacta con nosotros"
+          bgColor="bg-blue-600"
         />
       </div>
       {/* Título principal */}
-      <div className="text-left mb-12">
-        <p className="text-black text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl pb-2">
-          Características Destacadas
+      <div className="text-left mb-12 pt-10">
+        <p className="text-black text-3xl font-medium sm:text-4xl md:text-5xl lg:text-6xl pb-6">
+          Artículos Científicos y Académicos
         </p>
         <p className="mt-4 text-gray-700">
-          Descubre cómo cada aspecto de nuestro servicio está diseñado para brindarte un apoyo completo y de calidad en tus proyectos académicos, desde la asesoría inicial hasta la entrega final.
+          Sabemos lo complejo que puede ser la redacción de artículos científicos, desde
+          presentar argumentos sólidos hasta realizar un análisis riguroso de datos.
+          Nuestro equipo está aquí para ayudarte a desarrollar un artículo con el rigor
+          y la claridad que la investigación académica exige.
+        </p>
+
+        <div className="p-4">
+          <h2 className="mt-4 text-gray-700 text-3xl font-medium pb-4">
+            ¿Qué Incluye Nuestro Servicio?
+          </h2>
+          <ul className="list-disc pl-5">
+            <li>
+              <strong>Investigación a Fondo:</strong> Realizamos una investigación completa y te ayudamos a
+              estructurar los fundamentos y antecedentes necesarios para tu artículo.
+            </li>
+            <li>
+              <strong>Análisis de Datos:</strong> Procesamos y analizamos tus datos utilizando
+              métodos estadísticos confiables y presentamos los resultados de forma clara y precisa.
+            </li>
+            <li>
+              <strong>Redacción Académica:</strong> Nos enfocamos en la claridad, precisión y rigor
+              científico para que el mensaje y los resultados de tu investigación se comuniquen de manera efectiva.
+            </li>
+            <li>
+              <strong>Normas de Citación:</strong> Adaptamos tu artículo a las normas de citación que prefieras,
+              como APA, Vancouver o IEEE, para asegurar que cumpla con los estándares académicos.
+            </li>
+          </ul>
+        </div>
+
+        <p className="mt-6 text-gray-700">
+          Nos encargamos de cada etapa de tu artículo para garantizar que cumpla con los requisitos
+          académicos, facilitando tu proceso de publicación y mejorando tus posibilidades de éxito.
         </p>
       </div>
+
       {/* Sección de características */}
       {[
         {
-          title: "1. Asesoría Personalizada",
+          title: "Investigación de Calidad",
           description:
-            "Cada proyecto académico es un reto diferente, y en Tooltesis entendemos lo importante que es adaptarse a tus necesidades específicas. Por eso, ofrecemos un enfoque individualizado que se ajusta a tus objetivos y temáticas.",
-          imgSrc: "/img/análisisRequerimientos.webp",
-          alt: "Análisis de Requerimientos",
+            "Nos aseguramos de que cada artículo cuente con una base de investigación sólida, construyendo sobre información actual y relevante para respaldar tus argumentos.",
+          imgSrc: "/img/investigacionCalidad.webp",
+          alt: "Investigación de Calidad",
         },
         {
-          title: "2. Confidencialidad Asegurada",
+          title: "Redacción Científica",
           description:
-            "Sabemos que la privacidad es fundamental. Por eso, implementamos un sistema de confidencialidad total, garantizando que tu información personal esté siempre segura.",
-          imgSrc: "/img/disenodeprototipos.webp",
-          alt: "Diseño de Prototipos",
-        },
-        {
-          title: "3. Uso de Normas Reconocidas",
-          description:
-            "Nos especializamos en los estándares de citación y estilo académico más reconocidos, asegurando la credibilidad y profesionalismo de cada trabajo.",
-          imgSrc: "/img/agile_development.webp",
-          alt: "Desarrollo Ágil",
-        },
-        {
-          title: "4. Control de Plagio",
-          description:
-            "La originalidad es clave en el éxito académico. Utilizamos software avanzado de detección de plagio, garantizando que cada trabajo sea 100% original.",
-          imgSrc: "/img/pruebas_exhaustivas.webp",
-          alt: "Integración y Pruebas Exhaustivas",
-        },
-        {
-          title: "5. Equipo Multidisciplinario",
-          description:
-            "Contamos con un equipo de profesionales especializados en distintas áreas del conocimiento, asegurando que tu trabajo cuente con la calidad que esperas.",
-          imgSrc: "/img/diseñodeprototipos.webp",
-          alt: "Implementación y Soporte Continuo",
+            "Nuestro equipo redacta artículos con el rigor y claridad que requiere la academia, asegurando que tus ideas se comuniquen efectivamente.",
+          imgSrc: "/img/redaccionCientifica.webp",
+          alt: "Redacción Científica",
         },
       ].map((feature, index) => (
         <div
