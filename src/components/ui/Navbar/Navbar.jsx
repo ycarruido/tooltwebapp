@@ -16,7 +16,7 @@ const Navbar = () => {
         { title: "Servicios", path: "#services900" },
         { title: "Empresa", path: "/about" },
         { title: "Blog", path: "/" },
-        { title: "Gestión de Proyectos", path: "https://toolstesis.web.app/home" },
+        { title: "Gestión de Proyectos", path: "https://toolstesis.web.app/login" },
         { title: "FAQ", path: "/faq" }
     ];
 
