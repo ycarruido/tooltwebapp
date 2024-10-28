@@ -16,7 +16,7 @@ const Navbar = () => {
         { title: "Servicios", path: "#services900" },
         { title: "Empresa", path: "/about" },
         { title: "Blog", path: "/" },
-        { title: "Plataforma para clientes", path: "https://toolstesis.web.app/" },
+        { title: "Gestión de Proyectos", path: "https://toolstesis.web.app/home" },
         { title: "FAQ", path: "/faq" }
     ];
 
@@ -130,14 +130,27 @@ const Navbar = () => {
 
 
                                     >
-                                        <Link
+                                        {/* <Link
                                             href={item.path}
                                             className="block"
                                             scroll={false}
                                             onClick={(e) => smoothScroll(e, item.path)}
                                         >
                                             {item.title}
-                                        </Link>
+                                        </Link> */}
+
+                                        <Link
+    href={item.path}
+    className="block"
+    scroll={false}
+    onClick={(e) => {
+        item.title === "Gestión de Proyectos"
+            ? (window.open(item.path, '_blank'), e.preventDefault())
+            : smoothScroll(e, item.path);
+    }}
+>
+    {item.title}
+</Link>
                                         {/* Submenú para Servicios */}
                                         {item.title === "Servicios" && showServicesMenu && (
                                             <div 
