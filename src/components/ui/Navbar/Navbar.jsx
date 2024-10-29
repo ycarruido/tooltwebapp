@@ -17,7 +17,7 @@ const Navbar = () => {
         { title: "Empresa", path: "/about" },
         { title: "Blog", path: "/" },
         { title: "FAQ", path: "/faq" },
-        { title: "Mis Proyectos", path: "https://toolstesis.web.app/login" },
+        { title: "Mis proyectos", path: "https://toolstesis.web.app/login" },
     ];
 
     const smoothScroll = (e, path) => {
