@@ -144,7 +144,7 @@ const Navbar = () => {
     className="block"
     scroll={false}
     onClick={(e) => {
-        item.title === "Mis Proyectos"
+        item.title === "Mis proyectos"
             ? (window.open(item.path, '_blank'), e.preventDefault())
             : smoothScroll(e, item.path);
     }}
