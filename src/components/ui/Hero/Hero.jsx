@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const Hero = () => {
   const texts = [
+    "La verdadera red de profesores",
     "Redacción experta",
     "Apostando por tu futuro",
     "Asesoría académica",
@@ -21,8 +22,7 @@ const Hero = () => {
         });
         setFade(false);
       }, 500); // Duración del desvanecimiento
-    }, 3000); // Cambiar cada 3 segundos
-
+    }, 5000); // Cambiar cada 5 segundos
     return () => clearInterval(interval);
   }, []);
 
@@ -36,13 +36,13 @@ const Hero = () => {
         backgroundPosition: "center",
       }}
     >
-      <div className="flex w-full px-4 md:px-20 mx-auto h-full bg-gray-950 bg-opacity-20">
-        <div className="w-full md:w-2/3 text-left space-y-5 flex flex-col justify-end text-white mb-10">
+      <div className="flex w-full md:px-20 mx-auto h-full bg-gray-950 bg-opacity-20">
+        <div className="w-full text-left space-y-5 flex flex-col justify-end text-white mb-10">
           <div className="relative bg-cover bg-center">
             <div className="absolute inset-0 bg-blue-950 opacity-0 rounded-3xl"></div>
-            <div className="relative z-10 text-white p-4">
+            <div className="relative z-10 text-white p-0">
               <h1
-                className={`text-4xl lg:text-8xl md:text-6xl sm:text-4xl xs:text-xl font-medium transition-opacity duration-500 ${
+                className={`text-4xl lg:text-[7rem] md:text-6xl sm:text-4xl xs:text-xl font-medium transition-opacity duration-500 ${
                   fade ? "opacity-0" : "opacity-100"
                 }`}
               >
@@ -52,7 +52,7 @@ const Hero = () => {
           </div>
         </div>
         {/* Imagen a la derecha en pantallas grandes */}
-        <div className="hidden md:block md:w-1/2 h-full"></div>
+        <div className="hidden md:block md:w-[20%] lg:w-[20%] h-full"></div>
       </div>
     </section>
   );
