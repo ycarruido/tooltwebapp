@@ -15,8 +15,8 @@ const montserrat = Montserrat({
 })
 
 export const metadata = {
-  title: 'DACSystems - Desarrollo de Aplicaciones, Sitios Web, Infraestructura, Marketing y Finanzas - ¡Contáctanos!',
-  description: 'Somos su socio de confianza para el Desarrollo de Aplicaciones y Sitios Web Personalizados, Servicios de Infraestructura y Soporte, Marketing Digital y Servicios Financieros. Nuestro equipo de expertos está aquí para ayudarlo a alcanzar sus objetivos de negocio. ¡Contáctanos hoy para una consulta gratuita!',
+  title: "Tooltesis - Asesoría Académica para Tesis, TFG y TFM Personalizados - ¡Contáctanos!",
+description: "Tooltesis ofrece asesoría profesional para Tesis, Trabajos Finales de Grado y de Máster (TFG y TFM), guías de estudio, presentaciones, y artículos científicos. Nuestro equipo experto garantiza confidencialidad y soporte integral para ayudarte a alcanzar el éxito académico. ¡Contáctanos hoy para iniciar tu proyecto!",
   icons: {
     icon:[
       {
