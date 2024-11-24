@@ -4,7 +4,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 
     const socialNetworks = [
         { Icon: XIcon, href: "https://x.com/tooltesis", fontSize: 20},
-        { Icon: InstagramIcon, href: "https://www.instagram.com/tooltesis", fontSize: 24},
+        { Icon: InstagramIcon, href: "https://www.instagram.com/toolstesis", fontSize: 24},
         { Icon: FacebookIcon, href: "https://www.facebook.com/tooltesis", fontSize: 24},
     ];
 
@@ -48,7 +48,11 @@ const Footer = () => (
                 <div className="p-4 rounded">
                     <h2 className="text-md font-medium">CONTACTO</h2>
                     <ul className="text-sm font-light list-disc pl-5">
-                        <li>WhatsApp +56 9 6738 7656.</li> 
+                        <li>WhatsApp 
+                            <a target="_blank" href="https://wa.me/56972429560" className="m-2 text-gray-850 hover:text-sky-800 font-medium duration-150">
+                                +56 9 7242 9560
+                            </a>
+                        </li> 
                         <li>Chile</li>
                     </ul>
                 </div>

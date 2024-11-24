@@ -59,7 +59,7 @@ const Navbar = () => {
     return (
         <header>
             <div className="bg-[#0080c8] text-right text-white text-xs font-semibold px-4 py-1 fixed top-0 left-0 w-full z-30">
-                <p><WhatsAppIcon/> +56 9 6738 7656</p>
+                <p><WhatsAppIcon/> +56 9 7242 9560</p>
             </div>
             <nav className={`bg-white border-b border-sky-300 w-full fixed top-8 left-0 z-20 md:text-sm shadow-md`}>
                 <div className="custom-screen items-center mx-auto md:flex z-30"

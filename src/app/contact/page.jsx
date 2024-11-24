@@ -63,8 +63,8 @@ export default function ContactPage() {
               <p className="mt-3">
               Envíanos un mensaje de WhatsApp a
                 
-                <a target="_blank" href="https://wa.me/56967387656" className="m-2 text-gray-850 hover:text-sky-800 font-medium duration-150">
-                  +56 9 6738 7656
+                <a target="_blank" href="https://wa.me/56972429560" className="m-2 text-gray-850 hover:text-sky-800 font-medium duration-150">
+                  +56 9 7242 9560
                 </a>
 
                 </p>
