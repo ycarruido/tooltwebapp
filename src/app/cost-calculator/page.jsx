@@ -53,13 +53,26 @@ export default function CostCalculator() {
     });
   };
 
+  const resetCalculator = () => {
+    setStep(1);
+    setFormData({
+      title: "",
+      description: "",
+      level: "undergraduate",
+      pages: 50,
+      installments: 4,
+    });
+    setResult(null);
+  };
+
   const currentLevelData = pricingData[formData.level];
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 md:p-6">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md md:max-w-lg lg:max-w-2xl">
         <h1 className="text-2xl font-bold text-center mb-4">Calculadora de Costos</h1>
 
+        {/* Paso 1 */}
         {step === 1 && (
           <div>
             <div className="space-y-4">
@@ -100,14 +113,15 @@ export default function CostCalculator() {
           </div>
         )}
 
+        {/* Paso 2 */}
         {step === 2 && (
           <div>
             <p className="font-semibold text-gray-700 mb-4">Selecciona el nivel educativo:</p>
-            <div className="flex justify-around items-center mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
               {Object.keys(pricingData).map((level) => (
                 <div
                   key={level}
-                  className={`p-4 border rounded-lg cursor-pointer ${
+                  className={`p-4 border rounded-lg text-center cursor-pointer ${
                     formData.level === level ? "bg-blue-500 text-white" : "bg-gray-100"
                   }`}
                   onClick={() =>
@@ -135,6 +149,7 @@ export default function CostCalculator() {
           </div>
         )}
 
+        {/* Paso 3 */}
         {step === 3 && (
           <div>
             <div className="space-y-4">
@@ -185,17 +200,18 @@ export default function CostCalculator() {
           </div>
         )}
 
+        {/* Resultado */}
         {step === 4 && result && (
           <div className="mt-6">
             <h2 className="text-xl font-bold text-center mb-2">Estimación Aproximada</h2>
             <p className="text-center text-gray-700 mb-4">{`${formData.title} - ${result.date}`}</p>
-            <div className="flex">
-              <div className="w-3/5 bg-blue-500 text-white p-4">
-                <h3 className="font-semibold">Resumen</h3>
+            <div className="flex flex-col sm:flex-row">
+              <div className="sm:w-3/5 bg-blue-500 text-white p-4">
+                <h3 className="font-semibold text-lg">Resumen</h3>
               </div>
-              <div className="w-2/5 bg-gray-200 text-gray-700 p-4">
-                <h3 className="font-semibold">Precio por página</h3>
-                <p>${pricingData[formData.level].pricePerPage}</p>
+              <div className="sm:w-2/5 bg-gray-200 text-gray-700 p-4">
+                <h3 className="font-semibold text-lg">Precio por página</h3>
+                <p className="text-lg">${pricingData[formData.level].pricePerPage}</p>
               </div>
             </div>
             <div className="mt-4">
@@ -208,9 +224,18 @@ export default function CostCalculator() {
             <p className="mt-4 text-gray-600">
               Esta estimación proporciona una descripción detallada del costo estimado para desarrollar el proyecto <strong>{formData.title}</strong>, en función de las características y las mejores prácticas. Los tiempos pueden ajustarse según las especificaciones y los requisitos detallados del proyecto.
             </p>
+            <button
+              onClick={resetCalculator}
+              className="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600"
+            >
+              Reiniciar
+            </button>
           </div>
         )}
       </div>
     </div>
   );
 }
+
+
+
