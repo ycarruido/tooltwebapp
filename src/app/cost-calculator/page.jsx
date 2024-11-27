@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import CurrencySelect from "../../components/ui/CurrencySelect/CurrencySelect";
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const fiatCurrencies = [
   {
@@ -74,6 +75,10 @@ export default function CostCalculator() {
     doctoral: { pricePerPage: 17, minPages: 150, maxPages: 200 },
   };
 
+
+
+  
+
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     title: "",
@@ -92,14 +97,24 @@ export default function CostCalculator() {
     }));
   };
 
-  const handleNextStep = () => {
-    if (step === 1 && (!formData.title || !formData.description)) {
+  const handleNextStep = (direction) => {
+
+      // Si estás yendo hacia atrás
+    if (direction === -1) {
+      setStep(step - 1);
+      return;
+  }
+
+  // Validación para avanzar al siguiente paso
+  if (step === 1 && (!formData.title || !formData.description)) {
       alert("Por favor, completa el título y la descripción.");
       return;
-    }
-    setStep(step + 1);
+  }
+  
+  // Avanzar al siguiente paso
+  setStep(step + 1);
+    
   };
-
 
   const formatNumber = (number) => {
     return new Intl.NumberFormat("es-ES", {
@@ -108,24 +123,90 @@ export default function CostCalculator() {
     }).format(number);
   };
 
+
+
+  function calcularCostoProgresivo(numPaginas, costoPorPagina) {
+    //let costoPorPagina;
+
+    if (numPaginas <= 10) {
+        costoPorPagina = 10;
+    } else if (numPaginas <= 80) {
+        costoPorPagina = 10 - ((numPaginas - 10) * (10 - 8)) / (80 - 10);
+    } else if (numPaginas <= 150) {
+        costoPorPagina = 8 - ((numPaginas - 80) * (8 - 7)) / (150 - 80);
+    } else {
+        costoPorPagina = 7 - ((numPaginas - 150) * (7 - 6)) / (Infinity - 150);
+    }
+
+    const costoTotal = numPaginas * costoPorPagina;
+    return costoTotal; // Redondea a dos decimales
+}
+
+
+  function calcularCostoTotal(numPaginas, costPerPagebase) {
+    // Definición de los rangos
+
+    const factorDeAjuste1 = 1.25;   //NroPaginas <= 10
+    const factorDeAjuste2 = 1;      //10 < NroPaginas <= 80
+    const factorDeAjuste3 = 0.875;  //80 > NroPaginas <= 150
+    const factorDeAjuste4 = 0.75;   //NroPaginas > 150
+
+    const rangos = [
+        { limite: 10, costoPorPagina: costPerPagebase*factorDeAjuste1 },
+        { limite: 80, costoPorPagina: costPerPagebase*factorDeAjuste2 },
+        { limite: 150, costoPorPagina: costPerPagebase*factorDeAjuste3 },
+        { limite: Infinity, costoPorPagina: costPerPagebase*factorDeAjuste4 }
+    ];
+
+    let costoTotal = 0;
+    let paginasRestantes = numPaginas;
+
+    for (let i = 0; i < rangos.length; i++) {
+        const { limite, costoPorPagina } = rangos[i];
+        const paginasEnRango = Math.min(paginasRestantes, limite - (i > 0 ? rangos[i - 1].limite : 0));
+
+        if (paginasEnRango > 0) {
+            costoTotal += paginasEnRango * costoPorPagina;
+            paginasRestantes -= paginasEnRango;
+        }
+
+        if (paginasRestantes <= 0) break;
+    }
+
+    return costoTotal;
+}
+
+
   const calculateCost = () => {
     const { level, pages, installments } = formData;
-    const costPerPage = pricingData[level].pricePerPage;
-    const totalCost = costPerPage * pages;
-    
+    const costPerPagebase = pricingData[level].pricePerPage;
 
-    
+    // let factor = factorDeAjuste1;
 
+    // if ( pages > 10 && pages <= 80){
+    //   factor = factorDeAjuste2;
+    // }
+
+    // if ( pages >80 && pages <=130){
+    //   factor = factorDeAjuste3;
+    // }
+
+    // if (pages > 130){
+    //   factor = factorDeAjuste4;
+    // }
+
+    const totalCost = calcularCostoProgresivo(pages,costPerPagebase);
+    //const totalCost = calcularCostoTotal(pages,costPerPagebase);
+
+    // const costPerPage = costPerPagebase * factor;
+
+    // const totalCost = costPerPage * pages;
+
+    //console.log("base: ", costPerPagebase, "preciopp: ",costPerPage )
+    
     const rate = exchangeRates[selectedCurrency] || 1;
-
     const costInSelectedCurrency =  formatNumber(totalCost * rate);
-
     const installmentCost = formatNumber((totalCost * rate) / installments);
-
-    // console.log("installments: ", installments)
-    // console.log("installmentCost: ",installmentCost)
-    // console.log("currency: ",selectedCurrency)
-    // console.log("rate: ",rate, " conver: ", costInSelectedCurrency)
 
     setResult({
       totalCostUSD: totalCost.toFixed(2),
@@ -133,6 +214,7 @@ export default function CostCalculator() {
       selectedCurrency: selectedCurrency,
       installments,
       installmentCost: installmentCost,
+      pages: pages,
       date: new Date().toLocaleDateString("es-VE", {
         day: "2-digit",
         month: "2-digit",
@@ -158,10 +240,19 @@ export default function CostCalculator() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 md:p-6">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md md:max-w-lg lg:max-w-2xl">
-        <h1 className="text-2xl font-bold text-center mb-4">
-          Calculadora de Costos
-        </h1>
-
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-bold text-left mb-4">
+            Calculadora de Costos
+          </h1>
+        </div>
+        <div>
+          <span className="cursor-pointer text-blue-600" onClick={() => handleNextStep(-1)}>
+            <KeyboardBackspaceIcon />
+          </span>
+        </div>
+      </div>
+        
         {/* Paso 1 */}
         {step === 1 && (
           <div>
@@ -212,13 +303,15 @@ export default function CostCalculator() {
               </div>
 
             </div>
-
-            <button
-              onClick={handleNextStep}
-              className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-            >
-              Guardar y Continuar
-            </button>
+            <div className="pt-10">
+              <button
+                onClick={() => handleNextStep(1)}
+                style={{ borderRadius: '9999px' }} // Esto asegura que sea completamente redondeado
+                className="w-full sm:w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2 text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700"
+              >
+                Guardar y Continuar
+              </button> 
+            </div>
           </div>
         )}
 
@@ -253,12 +346,15 @@ export default function CostCalculator() {
                 </div>
               ))}
             </div>
-            <button
-              onClick={handleNextStep}
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-            >
-              Guardar y Continuar
-            </button>
+            <div className="pt-10">
+              <button
+                onClick={() => handleNextStep(1)}
+                style={{ borderRadius: '9999px' }} // Esto asegura que sea completamente redondeado
+                className="w-full sm:w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2 text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700"
+              >
+                Guardar y Continuar
+              </button>
+            </div>
           </div>
         )}
 
@@ -281,11 +377,11 @@ export default function CostCalculator() {
                   placeholder="Ej: 80"
                   value={formData.pages}
                   onChange={handleInputChange}
-                  min={currentLevelData.minPages}
-                  max={currentLevelData.maxPages}
+                  // min={currentLevelData.minPages}
+                  // max={currentLevelData.maxPages}
                 />
                 <p className="text-sm text-gray-500">
-                  Rango permitido: {currentLevelData.minPages} -{" "}
+                  Rango promedio: {currentLevelData.minPages} -{" "}
                   {currentLevelData.maxPages} páginas.
                 </p>
               </div>
@@ -305,40 +401,43 @@ export default function CostCalculator() {
                   value={formData.installments}
                   onChange={handleInputChange}
                   min="1"
+                  readOnly
                 />
               </div>
             </div>
-            <button
-              onClick={() => {
-                calculateCost();
-                setStep(4);
-              }}
-              className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-            >
-              Calcular
-            </button>
+            <div className="pt-10">
+              <button
+                onClick={() => {
+                  calculateCost();
+                  setStep(4);
+                }}
+                style={{ borderRadius: '9999px' }} // Esto asegura que sea completamente redondeado
+                className="w-full sm:w-full px-4 py-2 md:w-1/2 lg:w-1/2 xl:w-1/2 text-white bg-gray-900 hover:bg-gray-800 active:bg-gray-700"
+              >
+                Calcular
+              </button>
+            </div>
           </div>
         )}
 
         {/* Resultado */}
         {step === 4 && result && (
           <div className="mt-6">
-            <h2 className="text-xl font-bold text-center mb-2">
-              Estimación Aproximada
+            <h2 className="text-xl font-bold text-left mb-2">
             </h2>
-            <p className="text-center text-gray-700 mb-4">{`${formData.title}`}</p>
             <div className="flex flex-col sm:flex-row">
               <div className="sm:w-3/5 bg-blue-500 text-white p-4">
-                <h3 className="font-semibold text-lg">Resumen</h3>
+                <h3 className="font-semibold text-lg">Resumen y estimación</h3>
               </div>
               <div className="sm:w-2/5 bg-gray-200 text-gray-700 p-4">
-                <h3 className="font-semibold text-lg">Fecha</h3>
-                <p className="text-lg">${result.date}</p>
+                <h3 className="font-semibold text-lg text-right">Fecha</h3>
+                <p className="text-lg text-right">{result.date}</p>
               </div>
             </div>
             <div className="mt-4">
-              <p>
-                <strong>Descripción:</strong> {formData.description}
+              <p className="text-left text-gray-700 mb-4"><strong>{`${formData.title}`}</strong></p>
+              <p className="pb-4">
+                <strong>Descripción breve:</strong> {formData.description}
               </p>
               <p>
                 <strong>Nivel educativo:</strong>{" "}
@@ -348,9 +447,11 @@ export default function CostCalculator() {
                   ? "Maestría"
                   : "Doctorado"}
               </p>
+              <p><strong>Cantidad de páginas: </strong> {result.pages}</p>
               <p className="text-green-800">
                 <strong className="text-black">Total a pagar en USD:</strong> ${result.totalCostUSD}
               </p>
+
               <p className="text-blue-800">
                 <strong className="text-black">Total a pagar en {selectedCurrency}:</strong> ${result.totalCostSelectedCurrency}
               </p>
@@ -362,16 +463,11 @@ export default function CostCalculator() {
               </p>
             </div>
             <p className="mt-4 text-gray-600">
-              Esta estimación proporciona una descripción detallada del costo
-              estimado para desarrollar el proyecto{" "}
-              <strong>{formData.title}</strong>, en función de las
-              características y las mejores prácticas. Los tiempos pueden
-              ajustarse según las especificaciones y los requisitos detallados
-              del proyecto.
+              Esta es una estimación preliminar del costo para desarrollar el proyecto <strong>{formData.title}</strong>, basada en las características iniciales y las mejores prácticas. Cabe destacar que los montos pueden variar debido a cambios en los requisitos, ajustes en las especificaciones o factores externos como la fluctuación de la tasa oficial de la moneda. Los tiempos y costos finales se ajustarán al concretar todos los detalles del proyecto.
             </p>
             <button
               onClick={resetCalculator}
-              className="mt-4 w-full bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600"
+              className="mt-4 w-full rounded-full bg-gray-500 text-white py-2 px-4 hover:bg-gray-600"
             >
               Reiniciar
             </button>

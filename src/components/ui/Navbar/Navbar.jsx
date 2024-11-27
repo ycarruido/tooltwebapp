@@ -17,6 +17,7 @@ const Navbar = () => {
         { title: "Empresa", path: "/about" },
         { title: "Blog", path: "/" },
         { title: "FAQ", path: "/faq" },
+        { title: "Estimación de costo", path: "/cost-calculator" },
         { title: "Mis proyectos", path: "https://toolstesis.web.app/login" },
     ];
 
