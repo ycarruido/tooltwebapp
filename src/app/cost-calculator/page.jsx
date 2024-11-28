@@ -75,6 +75,11 @@ export default function CostCalculator() {
     doctoral: { pricePerPage: 17, minPages: 150, maxPages: 200 },
   };
 
+  //factorDeAjuste
+  const fa1 = 1.25;   //NroPaginas <= 10
+  const fa2 = 1;      //10 < NroPaginas <= 80
+  const fa3 = 0.875;  //80 > NroPaginas <= 150
+  const fa4 = 0.75;   //NroPaginas > 150
 
 
   
@@ -98,22 +103,24 @@ export default function CostCalculator() {
   };
 
   const handleNextStep = (direction) => {
-
-      // Si estás yendo hacia atrás
+    // Si estás yendo hacia atrás
     if (direction === -1) {
+      if (step === 1) {
+        return;
+      }
       setStep(step - 1);
       return;
-  }
+    }
 
-  // Validación para avanzar al siguiente paso
-  if (step === 1 && (!formData.title || !formData.description)) {
-      alert("Por favor, completa el título y la descripción.");
-      return;
-  }
+    // Validación para avanzar al siguiente paso
+    if (step === 1 && (!formData.title || !formData.description)) {
+        alert("Por favor, completa el título y la descripción.");
+        return;
+    }
   
-  // Avanzar al siguiente paso
-  setStep(step + 1);
-    
+    // Avanzar al siguiente paso
+    setStep(step + 1);
+
   };
 
   const formatNumber = (number) => {
@@ -125,55 +132,41 @@ export default function CostCalculator() {
 
 
 
-  function calcularCostoProgresivo(numPaginas, costoPorPagina) {
-    //let costoPorPagina;
 
+  function calcularCostoProgresivo(numPaginas, nivelEstudio, costoPorPagina) {
+    //let costoPorPagina;
+    //console.log(nivelEstudio)
+    // Define los precios para cada nivel académico
+
+    // const precios = {
+    //   undergraduate: { rango1: 10, rango2: 8, rango3: 7, rango4: 6 },
+    //   masters: { rango1: 13.75, rango2: 11, rango3: 9.625, rango4: 8.25 },
+    //   doctoral: { rango1: 21.25, rango2: 17, rango3: 14.875, rango4: 12.75 },
+    // };
+
+
+    const precios = {
+      undergraduate: { rango1: costoPorPagina*fa1, rango2: costoPorPagina*fa2, rango3: costoPorPagina*fa3, rango4: costoPorPagina*fa4 },
+      masters: { rango1: costoPorPagina*fa1, rango2: costoPorPagina*fa2, rango3: costoPorPagina*fa3, rango4: costoPorPagina*fa4 },
+      doctoral: { rango1: costoPorPagina*fa1, rango2: costoPorPagina*fa2, rango3: costoPorPagina*fa3, rango4: costoPorPagina*fa4 },
+    };
+
+    // Selecciona los precios según el nivel de estudio
+    const { rango1, rango2, rango3, rango4 } = precios[nivelEstudio];
+
+    // Determina el costo por página basado en el número de páginas
     if (numPaginas <= 10) {
-        costoPorPagina = 10;
+        costoPorPagina = rango1;
     } else if (numPaginas <= 80) {
-        costoPorPagina = 10 - ((numPaginas - 10) * (10 - 8)) / (80 - 10);
+        costoPorPagina = rango1 - ((numPaginas - 10) * (rango1 - rango2)) / (80 - 10);
     } else if (numPaginas <= 150) {
-        costoPorPagina = 8 - ((numPaginas - 80) * (8 - 7)) / (150 - 80);
+        costoPorPagina = rango2 - ((numPaginas - 80) * (rango2 - rango3)) / (150 - 80);
     } else {
-        costoPorPagina = 7 - ((numPaginas - 150) * (7 - 6)) / (Infinity - 150);
+        costoPorPagina = rango4; // Estabilización en el último precio
     }
 
     const costoTotal = numPaginas * costoPorPagina;
-    return costoTotal; // Redondea a dos decimales
-}
-
-
-  function calcularCostoTotal(numPaginas, costPerPagebase) {
-    // Definición de los rangos
-
-    const factorDeAjuste1 = 1.25;   //NroPaginas <= 10
-    const factorDeAjuste2 = 1;      //10 < NroPaginas <= 80
-    const factorDeAjuste3 = 0.875;  //80 > NroPaginas <= 150
-    const factorDeAjuste4 = 0.75;   //NroPaginas > 150
-
-    const rangos = [
-        { limite: 10, costoPorPagina: costPerPagebase*factorDeAjuste1 },
-        { limite: 80, costoPorPagina: costPerPagebase*factorDeAjuste2 },
-        { limite: 150, costoPorPagina: costPerPagebase*factorDeAjuste3 },
-        { limite: Infinity, costoPorPagina: costPerPagebase*factorDeAjuste4 }
-    ];
-
-    let costoTotal = 0;
-    let paginasRestantes = numPaginas;
-
-    for (let i = 0; i < rangos.length; i++) {
-        const { limite, costoPorPagina } = rangos[i];
-        const paginasEnRango = Math.min(paginasRestantes, limite - (i > 0 ? rangos[i - 1].limite : 0));
-
-        if (paginasEnRango > 0) {
-            costoTotal += paginasEnRango * costoPorPagina;
-            paginasRestantes -= paginasEnRango;
-        }
-
-        if (paginasRestantes <= 0) break;
-    }
-
-    return costoTotal;
+    return Math.round(costoTotal * 100) / 100; // Redondea a 2 decimales
 }
 
 
@@ -181,27 +174,11 @@ export default function CostCalculator() {
     const { level, pages, installments } = formData;
     const costPerPagebase = pricingData[level].pricePerPage;
 
-    // let factor = factorDeAjuste1;
+    const totalCost = calcularCostoProgresivo(pages,level,costPerPagebase);
 
-    // if ( pages > 10 && pages <= 80){
-    //   factor = factorDeAjuste2;
-    // }
-
-    // if ( pages >80 && pages <=130){
-    //   factor = factorDeAjuste3;
-    // }
-
-    // if (pages > 130){
-    //   factor = factorDeAjuste4;
-    // }
-
-    const totalCost = calcularCostoProgresivo(pages,costPerPagebase);
     //const totalCost = calcularCostoTotal(pages,costPerPagebase);
-
     // const costPerPage = costPerPagebase * factor;
-
     // const totalCost = costPerPage * pages;
-
     //console.log("base: ", costPerPagebase, "preciopp: ",costPerPage )
     
     const rate = exchangeRates[selectedCurrency] || 1;
@@ -247,9 +224,11 @@ export default function CostCalculator() {
           </h1>
         </div>
         <div>
+        {step !== 1 && (
           <span className="cursor-pointer text-blue-600" onClick={() => handleNextStep(-1)}>
             <KeyboardBackspaceIcon />
           </span>
+        )}
         </div>
       </div>
         
@@ -422,56 +401,57 @@ export default function CostCalculator() {
 
         {/* Resultado */}
         {step === 4 && result && (
-          <div className="mt-6">
-            <h2 className="text-xl font-bold text-left mb-2">
-            </h2>
-            <div className="flex flex-col sm:flex-row">
-              <div className="sm:w-3/5 bg-blue-500 text-white p-4">
-                <h3 className="font-semibold text-lg">Resumen y estimación</h3>
-              </div>
-              <div className="sm:w-2/5 bg-gray-200 text-gray-700 p-4">
-                <h3 className="font-semibold text-lg text-right">Fecha</h3>
-                <p className="text-lg text-right">{result.date}</p>
-              </div>
+          <div className="mt-6 p-6 bg-white shadow-md rounded-lg">
+          <div className="flex flex-col sm:flex-row mb-4">
+            <div className="sm:w-3/5 bg-blue-600 text-white p-4 rounded-lg">
+              <h3 className="font-semibold text-lg">Resumen de Estimación</h3>
             </div>
-            <div className="mt-4">
-              <p className="text-left text-gray-700 mb-4"><strong>{`${formData.title}`}</strong></p>
-              <p className="pb-4">
-                <strong>Descripción breve:</strong> {formData.description}
-              </p>
-              <p>
-                <strong>Nivel educativo:</strong>{" "}
-                {formData.level === "undergraduate"
-                  ? "Pregrado"
-                  : formData.level === "masters"
-                  ? "Maestría"
-                  : "Doctorado"}
-              </p>
-              <p><strong>Cantidad de páginas: </strong> {result.pages}</p>
-              <p className="text-green-800">
-                <strong className="text-black">Total a pagar en USD:</strong> ${result.totalCostUSD}
-              </p>
-
-              <p className="text-blue-800">
-                <strong className="text-black">Total a pagar en {selectedCurrency}:</strong> ${result.totalCostSelectedCurrency}
-              </p>
-              <p>
-                <strong>Número de cuotas:</strong> {result.installments}
-              </p>
-              <p className="text-blue-800">
-                <strong className="text-black">Monto por cuota en {selectedCurrency}:</strong> ${result.installmentCost}
-              </p>
+            <div className="sm:w-2/5 bg-gray-200 text-gray-700 p-4 rounded-lg sm:ml-4">
+              <h3 className="font-semibold text-lg text-right">Fecha</h3>
+              <p className="text-lg text-right">{result.date}</p>
             </div>
-            <p className="mt-4 text-gray-600">
-              Esta es una estimación preliminar del costo para desarrollar el proyecto <strong>{formData.title}</strong>, basada en las características iniciales y las mejores prácticas. Cabe destacar que los montos pueden variar debido a cambios en los requisitos, ajustes en las especificaciones o factores externos como la fluctuación de la tasa oficial de la moneda. Los tiempos y costos finales se ajustarán al concretar todos los detalles del proyecto.
-            </p>
-            <button
-              onClick={resetCalculator}
-              className="mt-4 w-full rounded-full bg-gray-500 text-white py-2 px-4 hover:bg-gray-600"
-            >
-              Reiniciar
-            </button>
           </div>
+          <div className="mt-4 space-y-2">
+            <p className="text-left text-gray-700">
+              <strong className="text-gray-900">{`${formData.title}`}</strong>
+            </p>
+            <p>
+              <strong>Descripción breve:</strong> {formData.description}
+            </p>
+            <p>
+              <strong>Nivel educativo:</strong>{" "}
+              {formData.level === "undergraduate"
+                ? "Pregrado"
+                : formData.level === "masters"
+                ? "Maestría"
+                : "Doctorado"}
+            </p>
+            <p>
+              <strong>Cantidad de páginas:</strong> {result.pages}
+            </p>
+            <p className="text-green-800">
+              <strong className="text-black">Total a pagar en USD:</strong> ${result.totalCostUSD}
+            </p>
+            <p className="text-blue-800">
+              <strong className="text-black">Total a pagar en {selectedCurrency}:</strong> ${result.totalCostSelectedCurrency}
+            </p>
+            <p>
+              <strong>Número de cuotas:</strong> {result.installments}
+            </p>
+            <p className="text-blue-800">
+              <strong className="text-black">Monto por cuota en {selectedCurrency}:</strong> ${result.installmentCost}
+            </p>
+          </div>
+          <p className="mt-4 text-gray-600">
+            Esta es una estimación preliminar del costo para desarrollar el proyecto <strong>{formData.title}</strong>, basada en las características iniciales y las mejores prácticas. Cabe destacar que los montos pueden variar debido a cambios en los requisitos, ajustes en las especificaciones o factores externos como la fluctuación de la tasa oficial de la moneda. Los tiempos y costos finales se ajustarán al concretar todos los detalles del proyecto.
+          </p>
+          <button
+            onClick={resetCalculator}
+            className="mt-6 w-full rounded-full bg-gray-500 text-white py-2 hover:bg-gray-600 transition duration-200"
+          >
+            Reiniciar
+          </button>
+        </div>
         )}
       </div>
     </div>
