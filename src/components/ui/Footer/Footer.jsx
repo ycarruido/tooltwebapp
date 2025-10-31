@@ -6,7 +6,7 @@ const socialNetworks = [
   { Icon: XIcon, href: "https://x.com/tooltesis", fontSize: 20 },
   {
     Icon: InstagramIcon,
-    href: "https://www.instagram.com/tooltesis",
+    href: "https://www.instagram.com/toolstesis",
     fontSize: 24,
   },
   {
@@ -69,17 +69,23 @@ const Footer = () => (
         <div className="p-4 rounded">
           <h2 className="text-md font-medium">CONTACTO</h2>
           <ul className="text-sm font-light list-disc pl-5">
-            <li>
-              WhatsApp
+            {/* <li>
+             
               <a
                 target="_blank"
                 href="https://wa.me/56972429560"
                 className="m-2 text-gray-850 hover:text-sky-800 font-medium duration-150"
               >
-                +56 9 7242 9560
+                WhatsApp
               </a>
-            </li>
+            </li> */}
+            <li>España</li>
+            <li>Argentina</li>
             <li>Chile</li>
+            <li>Perú</li>
+            <li>Bolivia</li>
+            <li>Panamá</li>
+            <li>Venezuela</li>
           </ul>
         </div>
 

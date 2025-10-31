@@ -61,13 +61,13 @@ export default function ContactPage() {
                 Estamos aquí para ayudarte. Coordina una reunión para discutir tu proyecto.
               </p>
               <p className="mt-3">
-              Envíanos un mensaje de WhatsApp a
+              Envíanos un mensaje 
                 
-                <a target="_blank" href="https://wa.me/56972429560" className="m-2 text-gray-850 hover:text-sky-800 font-medium duration-150">
+                {/* <a target="_blank" href="https://wa.me/56972429560" className="m-2 text-gray-850 hover:text-sky-800 font-medium duration-150">
                   +56 9 7242 9560
-                </a>
+                </a>*/}
 
-                </p>
+                </p> 
                 <p>y comencemos a trabajar juntos en tu éxito académico.</p>
                 <h1 className="mt-3 text-sky-6  00 font-medium text-xl text-black">
                   Confidencialidad y Seguridad Garantizada
