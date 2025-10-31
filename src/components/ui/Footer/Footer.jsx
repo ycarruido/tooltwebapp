@@ -29,7 +29,7 @@ const Footer = () => (
             los estándares académicos y esté bien estructurado.
           </p>
           <ul className="text-md pt-2 font-light list-none space-y-2">
-            <li className="flex items-center">
+            {/* <li className="flex items-center">
               <span className="mr-2 text-sky-100">→</span>
               <a
                 target="_blank"
@@ -38,7 +38,7 @@ const Footer = () => (
               >
                 WhatsApp
               </a>
-            </li>
+            </li> */}
             <li className="flex items-center">
               <span className="mr-2 text-sky-100">→</span>
               <a
