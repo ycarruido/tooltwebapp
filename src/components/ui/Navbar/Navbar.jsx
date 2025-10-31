@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
 import Brand from '../Brand/Brand';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import EmailsAppIcon from '@mui/icons-material/Email';
+import InstAppIcon from '@mui/icons-material/Instagram';
 
 const Navbar = () => {
     const [state, setState] = useState(false);
@@ -60,7 +61,7 @@ const Navbar = () => {
     return (
         <header>
             <div className="bg-[#0080c8] text-right text-white text-xs font-semibold px-4 py-1 fixed top-0 left-0 w-full z-30">
-                <p><WhatsAppIcon/> +56 9 7242 9560</p>
+                <p><InstAppIcon/> @tooltesis < EmailsAppIcon/> proyectos@tooltesis.xyz</p> 
             </div>
             <nav className={`bg-white border-b border-sky-300 w-full fixed top-8 left-0 z-20 md:text-sm shadow-md`}>
                 <div className="custom-screen items-center mx-auto md:flex z-30"

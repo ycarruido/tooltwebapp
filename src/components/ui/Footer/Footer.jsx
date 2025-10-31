@@ -43,10 +43,10 @@ const Footer = () => (
               <span className="mr-2 text-sky-100">→</span>
               <a
                 target="_blank"
-                href="mailto:proyectos@tooltesis.com"
+                href="mailto:proyectos@tooltesis.xyz"
                 className="hover:underline text-sky-200"
               >
-                proyectos@tooltesis.com
+                proyectos@tooltesis.xyz
               </a>
             </li>
           </ul>
