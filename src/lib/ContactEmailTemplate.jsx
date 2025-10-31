@@ -29,7 +29,11 @@ const ContactEmailTemplate = (bodyContent, lead) => {
             <tr>
               <td style="padding: 20px; text-align: center; background-color: #3d82f6; color: #ffffff;">
                 <p style="margin: 0; font-size: 14px;">Formulario de Contacto</p>
+<<<<<<< HEAD
                 <p style="margin: 0; font-size: 12px;">Visítanos en <a href="https://www.tooltesis.com" style="color: #ffffff; text-decoration: underline;">tooltesis.com</a></p>
+=======
+                <p style="margin: 0; font-size: 12px;">Visítanos en <a href="https://www.tooltesis.xyz" style="color: #ffffff; text-decoration: underline;">tooltesis.xyz</a></p>
+>>>>>>> master
               </td>
             </tr>
           </table>
