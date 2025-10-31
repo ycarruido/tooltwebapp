@@ -6,7 +6,7 @@ const socialNetworks = [
   { Icon: XIcon, href: "https://x.com/tooltesis", fontSize: 20 },
   {
     Icon: InstagramIcon,
-    href: "https://www.instagram.com/toolstesis",
+    href: "https://www.instagram.com/tooltesis",
     fontSize: 24,
   },
   {
