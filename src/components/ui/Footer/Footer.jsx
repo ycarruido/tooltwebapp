@@ -81,10 +81,10 @@ const Footer = () => (
             </li> */}
             <li>España</li>
             <li>Argentina</li>
-            <li>Chile</li>
-            <li>Perú</li>
             <li>Bolivia</li>
+            <li>Chile</li>
             <li>Panamá</li>
+            <li>Perú</li>
             <li>Venezuela</li>
           </ul>
         </div>
